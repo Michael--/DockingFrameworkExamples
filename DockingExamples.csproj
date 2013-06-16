@@ -55,6 +55,7 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,13 +85,25 @@
     <Compile Include="gtk-gui\Examples.TextViewer.cs" />
     <Compile Include="FlorenceDockingDemo.cs" />
     <Compile Include="gtk-gui\Examples.FlorenceDockingDemo.cs" />
+    <Compile Include="Localization.cs" />
+    <Compile Include="gtk-gui\Examples.Localization.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Content Include="DockingExamples-de-DE.resx">
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="HelloWorld-16.png" />
+    <Content Include="DockingExamples-default.resx">
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="TestToolBarStatusBar-16.png" />
     <EmbeddedResource Include="VirtualListTest-16.png" />
     <EmbeddedResource Include="ThreadWorker-16.png" />
@@ -102,7 +115,7 @@
     <EmbeddedResource Include="Python\test6.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Python\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Python\dummy.txt">
