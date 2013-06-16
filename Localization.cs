@@ -15,8 +15,8 @@ namespace Examples
       {
          this.Build();
          this.Name = "Localization".L();
-         this.label1.LabelProp = "Any Content".L(GetType());
-          this.button1.Label = "Reset".L(GetType());
+         this.label1.LabelProp = "Any Content".L(GetType().Namespace);
+          this.button1.Label = "Reset".L(GetType().Namespace);
          "blabla".L();
       }
    }

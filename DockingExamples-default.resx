@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Examples.Localization.Any Content" xml:space="preserve">
+  <data name="Examples.Any Content" xml:space="preserve">
     <value>Any Content</value>
   </data>
-  <data name="Examples.Localization.Reset" xml:space="preserve">
+  <data name="Examples.Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
   <data name="Localization" xml:space="preserve">
