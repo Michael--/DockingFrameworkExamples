@@ -121,12 +121,15 @@
     <value>Irgendein Inhalt</value>
     <comment>c</comment>
   </data>
+  <data name="Examples.Localization" xml:space="preserve">
+    <value>Lokalisierung</value>
+    <comment>Kommentar</comment>
+  </data>
+  <data name="Examples.Other Content" xml:space="preserve">
+    <value>Ein anderer Inhalt</value>
+  </data>
   <data name="Examples.Reset" xml:space="preserve">
     <value>Zurücksetzen</value>
     <comment>c</comment>
-  </data>
-  <data name="Localization" xml:space="preserve">
-    <value>Lokalisierung</value>
-    <comment>Kommentar</comment>
   </data>
 </root>

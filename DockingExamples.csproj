@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="gtk-gui\Examples.LocalizationTest.cs" />
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="TestToolBarStatusBar.cs" />
     <Compile Include="gtk-gui\Examples.TestToolAndStatusBar.TestToolBarStatusBar.cs" />
@@ -85,8 +86,7 @@
     <Compile Include="gtk-gui\Examples.TextViewer.cs" />
     <Compile Include="FlorenceDockingDemo.cs" />
     <Compile Include="gtk-gui\Examples.FlorenceDockingDemo.cs" />
-    <Compile Include="Localization.cs" />
-    <Compile Include="gtk-gui\Examples.Localization.cs" />
+    <Compile Include="LocalizationTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
