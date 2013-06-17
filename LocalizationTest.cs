@@ -15,14 +15,13 @@ namespace Examples
       public LocalizationTest()
       {
          this.Build();
-         this.Name = "Localization";
       }
 
-      void ILocalizable.LocalizationChanged(DockItem item)
-      {
-         // TODO: next line will be moved to a generic solution soon
-         this.Name = "Localization".Localized(GetType().Namespace);
-      }
+      // set the displayed name of the widget
+      string ILocalizable.Name { get { return "Localization"; } }
+
+      // currently nothing do to, but special cases can be considered
+      void ILocalizable.LocalizationChanged(DockItem item) {}
    }
    
    #region Starter / Entry Point

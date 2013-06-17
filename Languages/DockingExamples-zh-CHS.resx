@@ -120,10 +120,13 @@
   <data name="Examples.Any Content" xml:space="preserve">
     <value>任何内容</value>
   </data>
+  <data name="Examples.Localization" xml:space="preserve">
+    <value>本土化</value>
+  </data>
+  <data name="Examples.Other Content" xml:space="preserve">
+    <value>其他内容</value>
+  </data>
   <data name="Examples.Reset" xml:space="preserve">
     <value>复位</value>
-  </data>
-  <data name="Localization" xml:space="preserve">
-    <value>本土化</value>
   </data>
 </root>
