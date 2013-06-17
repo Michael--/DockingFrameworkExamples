@@ -4,20 +4,34 @@ using System.Reflection;
 using System.Resources;
 using System.Collections;
 using System.ComponentModel.Design;
+using Docking;
 
 namespace Examples
 {
 
    [System.ComponentModel.ToolboxItem(true)]
-   public partial class Localization : Gtk.Bin
+   public partial class Localization : Gtk.Bin, ILocalizable
    {
       public Localization()
       {
          this.Build();
+         UpdateLanguage();
+      }
+
+      void UpdateLanguage()
+      {
          this.Name = "Localization".L();
          this.label1.LabelProp = "Any Content".L(GetType().Namespace);
-          this.button1.Label = "Reset".L(GetType().Namespace);
+         this.button1.Label = "Reset".L(GetType().Namespace);
          "blabla".L();
+      }
+
+      void ILocalizable.Changed(DockItem item)
+      {
+         UpdateLanguage();
+         item.UpdateLabel();
+         // QueueDraw();
+         // QueueResize();
       }
    }
    
