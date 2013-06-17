@@ -104,6 +104,11 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Languages\DockingExamples-zh-CHS.resx">
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="TestToolBarStatusBar-16.png" />
     <EmbeddedResource Include="VirtualListTest-16.png" />
     <EmbeddedResource Include="ThreadWorker-16.png" />
