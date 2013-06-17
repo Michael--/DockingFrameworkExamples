@@ -99,7 +99,7 @@
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="HelloWorld-16.png" />
-    <Content Include="DockingExamples-default.resx">
+    <Content Include="DockingExamples-en-US.resx">
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
