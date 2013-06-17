@@ -68,6 +68,7 @@ namespace Examples
             }
             else
             {
+                ResetMark();
                 labelBestMatch.LabelProp = "- ";
             }
         }
