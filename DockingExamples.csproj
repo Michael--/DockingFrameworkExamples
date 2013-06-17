@@ -90,7 +90,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Content Include="DockingExamples-de-DE.resx">
+    <Content Include="Languages\DockingExamples-de-DE.resx">
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -99,7 +99,7 @@
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="HelloWorld-16.png" />
-    <Content Include="DockingExamples-en-US.resx">
+    <Content Include="Languages\DockingExamples-en-US.resx">
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -114,9 +114,7 @@
     <EmbeddedResource Include="Python\test5.py" />
     <EmbeddedResource Include="Python\test6.py" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Python\dummy.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
