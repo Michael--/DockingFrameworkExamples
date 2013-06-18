@@ -138,4 +138,19 @@
   <data name="LocalizationProperties.View" xml:space="preserve">
     <value>Ansicht</value>
   </data>
+  <data name="MENU.Florence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MENU.Hello World" xml:space="preserve">
+    <value>Hallo Welt</value>
+  </data>
+  <data name="MENU.Levenshtein" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MENU.Localization Test" xml:space="preserve">
+    <value>Lokalisierungs Test</value>
+  </data>
+  <data name="MENU.TextViewer" xml:space="preserve">
+    <value />
+  </data>
 </root>
