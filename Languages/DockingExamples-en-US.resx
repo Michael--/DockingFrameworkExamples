@@ -130,4 +130,79 @@
   <data name="Examples.Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
+  <data name="MENU.Florence" xml:space="preserve">
+    <value>Florence</value>
+  </data>
+  <data name="MENU.Hello World" xml:space="preserve">
+    <value>Hello World</value>
+  </data>
+  <data name="MENU.Levenshtein" xml:space="preserve">
+    <value>Levenshtein</value>
+  </data>
+  <data name="MENU.Localization Test" xml:space="preserve">
+    <value>Localization Test</value>
+  </data>
+  <data name="MENU.PlotABC" xml:space="preserve">
+    <value>Plot ABC</value>
+  </data>
+  <data name="MENU.PlotCandle" xml:space="preserve">
+    <value>Plot Candle</value>
+  </data>
+  <data name="MENU.PlotCircular" xml:space="preserve">
+    <value>Plot Circular</value>
+  </data>
+  <data name="MENU.PlotDataSet" xml:space="preserve">
+    <value>Plot Dataset</value>
+  </data>
+  <data name="MENU.PlotGaussian" xml:space="preserve">
+    <value>Plot Gaussian</value>
+  </data>
+  <data name="MENU.PlotImage" xml:space="preserve">
+    <value>Plot Image</value>
+  </data>
+  <data name="MENU.PlotLabelAxis" xml:space="preserve">
+    <value>Plot Label Axis</value>
+  </data>
+  <data name="MENU.PlotLogAxis" xml:space="preserve">
+    <value>Plot Log Axis</value>
+  </data>
+  <data name="MENU.PlotLogLog" xml:space="preserve">
+    <value>Plot Log Log</value>
+  </data>
+  <data name="MENU.PlotMarkers" xml:space="preserve">
+    <value>Plot Markers</value>
+  </data>
+  <data name="MENU.PlotMockup" xml:space="preserve">
+    <value>Plot Mockup</value>
+  </data>
+  <data name="MENU.PlotParticles" xml:space="preserve">
+    <value>Plot Particles</value>
+  </data>
+  <data name="MENU.PlotQE" xml:space="preserve">
+    <value>Plot QE</value>
+  </data>
+  <data name="MENU.PlotSincFunction" xml:space="preserve">
+    <value>Plot Sinc Function</value>
+  </data>
+  <data name="MENU.PlotWave" xml:space="preserve">
+    <value>Plot Wave</value>
+  </data>
+  <data name="MENU.PlotWavelet" xml:space="preserve">
+    <value>Plot Wavelet</value>
+  </data>
+  <data name="MENU.Python" xml:space="preserve">
+    <value>Python</value>
+  </data>
+  <data name="MENU.Test Toolbar and Statusbar" xml:space="preserve">
+    <value>Test Toolbar and Statusbar</value>
+  </data>
+  <data name="MENU.TextViewer" xml:space="preserve">
+    <value>Text Viewer</value>
+  </data>
+  <data name="MENU.Thread Worker" xml:space="preserve">
+    <value>Thread Worker</value>
+  </data>
+  <data name="MENU.Virtual List Test" xml:space="preserve">
+    <value>Virtual List Test</value>
+  </data>
 </root>
