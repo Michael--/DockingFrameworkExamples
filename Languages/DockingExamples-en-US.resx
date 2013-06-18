@@ -130,6 +130,15 @@
   <data name="Examples.Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
+  <data name="LocalizationProperties.Test property localization" xml:space="preserve">
+    <value>Test property localization</value>
+  </data>
+  <data name="LocalizationProperties.TestDouble" xml:space="preserve">
+    <value>Test Double</value>
+  </data>
+  <data name="LocalizationProperties.View" xml:space="preserve">
+    <value>View</value>
+  </data>
   <data name="MENU.Florence" xml:space="preserve">
     <value>Florence</value>
   </data>

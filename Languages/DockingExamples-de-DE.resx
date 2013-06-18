@@ -132,4 +132,13 @@
     <value>Zurücksetzen</value>
     <comment>c</comment>
   </data>
+  <data name="LocalizationProperties.Test property localization" xml:space="preserve">
+    <value>Test Eigenschaften Lokalisierung</value>
+  </data>
+  <data name="LocalizationProperties.TestDouble" xml:space="preserve">
+    <value>Test doppelte Genauigkeit</value>
+  </data>
+  <data name="LocalizationProperties.View" xml:space="preserve">
+    <value>Ansicht</value>
+  </data>
 </root>

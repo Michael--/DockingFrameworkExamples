@@ -5,12 +5,13 @@ using System.Resources;
 using System.Collections;
 using System.ComponentModel.Design;
 using Docking;
+using System.Collections.Generic;
 
 namespace Examples
 {
 
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class LocalizationTest : Gtk.Bin, ILocalizable
+   public partial class LocalizationTest : Gtk.Bin, ILocalizable, IComponentInteract
    {
       public LocalizationTest()
       {
@@ -22,6 +23,54 @@ namespace Examples
 
       // currently nothing do to, but special cases can be considered
       void ILocalizable.LocalizationChanged(DockItem item) {}
+
+
+      #region implement IComponentInteract
+      List<IProperty> mProperty = new List<IProperty>();
+      LocalizationProperties mProperties = new LocalizationProperties();
+
+      void IComponentInteract.Added(object item)
+      {
+         if (item is IProperty)
+         {
+            IProperty property = item as IProperty;
+
+            mProperty.Add(property);
+            property.PropertyChanged += (e) =>
+            {
+               // if (e.Object == myObject) update...
+            };
+         }
+      }
+
+      void IComponentInteract.Removed(object item)
+      {
+         if (item is IProperty)
+         {
+            IProperty property = item as IProperty;
+            mProperty.Remove(property);
+         }
+      }
+
+      void IComponentInteract.Visible(object item, bool visible)
+      {
+      }
+
+      void IComponentInteract.Current(object item)
+      {
+         if (item == this)
+            foreach (IProperty p in mProperty)
+               p.SetObject(mProperties);
+      }
+      #endregion
+   }
+
+   public class LocalizationProperties
+   {
+      [System.ComponentModel.Category("LocalizationProperties.View")]
+      [System.ComponentModel.DisplayName("LocalizationProperties.TestDouble")]
+      [System.ComponentModel.Description("LocalizationProperties.Test property localization")]
+      public double TestDouble { get; set; }
    }
    
    #region Starter / Entry Point
