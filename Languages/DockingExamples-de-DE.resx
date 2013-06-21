@@ -121,13 +121,13 @@
     <value>Irgendein Inhalt</value>
   </data>
   <data name="Examples.Localization" xml:space="preserve">
-    <value>Lokalisierung</value>
+    <value>Lokalisierungs-Test</value>
   </data>
   <data name="Examples.Other Content" xml:space="preserve">
     <value>Ein anderer Inhalt</value>
   </data>
   <data name="Examples.Reset" xml:space="preserve">
-    <value>Zurücksetzen</value>
+    <value>Drück mich!</value>
   </data>
   <data name="LocalizationProperties.Test property localization" xml:space="preserve">
     <value>Test Eigenschaften Lokalisierung</value>
@@ -139,18 +139,27 @@
     <value>Ansicht</value>
   </data>
   <data name="MENU.Florence" xml:space="preserve">
-    <value />
+    <value>Florence</value>
   </data>
   <data name="MENU.Hello World" xml:space="preserve">
-    <value>Hallo Welt</value>
+    <value>Hallo, Welt!</value>
   </data>
   <data name="MENU.Levenshtein" xml:space="preserve">
-    <value />
+    <value>Levenshtein</value>
   </data>
   <data name="MENU.Localization Test" xml:space="preserve">
-    <value>Lokalisierungs Test</value>
+    <value>Lokalisierungs-Test</value>
   </data>
   <data name="MENU.TextViewer" xml:space="preserve">
     <value />
+  </data>
+  <data name="MENU.Thread Worker" xml:space="preserve">
+    <value>Test für Threads</value>
+  </data>
+  <data name="MENU.Test Toolbar and Statusbar" xml:space="preserve">
+    <value>Test für Toolbar und Statuszeile</value>
+  </data>
+  <data name="MENU.Virtual List Test" xml:space="preserve">
+    <value>Test für VirtualList Widget</value>
   </data>
 </root>

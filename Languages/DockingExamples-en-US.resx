@@ -121,13 +121,13 @@
     <value>Any Content</value>
   </data>
   <data name="Examples.Localization" xml:space="preserve">
-    <value>Localization</value>
+    <value>Localization Test</value>
   </data>
   <data name="Examples.Other Content" xml:space="preserve">
     <value>Other Content</value>
   </data>
   <data name="Examples.Reset" xml:space="preserve">
-    <value>Reset</value>
+    <value>Click me!</value>
   </data>
   <data name="LocalizationProperties.Test property localization" xml:space="preserve">
     <value>Test property localization</value>
@@ -142,7 +142,7 @@
     <value>Florence</value>
   </data>
   <data name="MENU.Hello World" xml:space="preserve">
-    <value>Hello World</value>
+    <value>Hello, World!</value>
   </data>
   <data name="MENU.Levenshtein" xml:space="preserve">
     <value>Levenshtein</value>
@@ -211,6 +211,6 @@
     <value>Thread Worker</value>
   </data>
   <data name="MENU.Virtual List Test" xml:space="preserve">
-    <value>Virtual List Test</value>
+    <value>Test for VirtualList Widget</value>
   </data>
 </root>
