@@ -151,7 +151,7 @@
     <value>Lokalisierungs-Test</value>
   </data>
   <data name="MENU.TextViewer" xml:space="preserve">
-    <value />
+    <value>Textbetrachter</value>
   </data>
   <data name="MENU.Thread Worker" xml:space="preserve">
     <value>Test für Threads</value>
