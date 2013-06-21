@@ -11,7 +11,7 @@ namespace Examples
 {
 
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class LocalizationTest : Gtk.Bin, ILocalizable, IComponentInteract
+   public partial class LocalizationTest : Gtk.Bin, ILocalizableComponent, IComponentInteract
    {
       public LocalizationTest()
       {
@@ -19,10 +19,10 @@ namespace Examples
       }
 
       // set the displayed name of the widget
-      string ILocalizable.Name { get { return "Localization"; } }
+      string ILocalizableComponent.Name { get { return "Localization"; } }
 
       // currently nothing do to, but special cases can be considered
-      void ILocalizable.LocalizationChanged(DockItem item) {}
+      void ILocalizableComponent.LocalizationChanged(DockItem item) {}
 
 
       #region implement IComponentInteract
