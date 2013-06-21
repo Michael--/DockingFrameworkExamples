@@ -139,10 +139,10 @@
     <value>本地化测试</value>
   </data>
   <data name="MENU.PlotABC" xml:space="preserve">
-    <value />
+    <value>剧情ABC</value>
   </data>
   <data name="MENU.PlotCandle" xml:space="preserve">
-    <value />
+    <value>剧情蜡烛</value>
   </data>
   <data name="MENU.Python" xml:space="preserve">
     <value>蟒蛇</value>
@@ -170,5 +170,47 @@
   </data>
   <data name="LocalizationProperties.View" xml:space="preserve">
     <value>视图</value>
+  </data>
+  <data name="MENU.PlotCircular" xml:space="preserve">
+    <value>剧情圆形</value>
+  </data>
+  <data name="MENU.PlotDataSet" xml:space="preserve">
+    <value>剧情数据集</value>
+  </data>
+  <data name="MENU.PlotGaussian" xml:space="preserve">
+    <value>剧情高斯</value>
+  </data>
+  <data name="MENU.PlotImage" xml:space="preserve">
+    <value>剧情图片</value>
+  </data>
+  <data name="MENU.PlotLabelAxis" xml:space="preserve">
+    <value>剧情标签轴</value>
+  </data>
+  <data name="MENU.PlotLogAxis" xml:space="preserve">
+    <value>剧情登录轴的</value>
+  </data>
+  <data name="MENU.PlotLogLog" xml:space="preserve">
+    <value>剧情日志日志</value>
+  </data>
+  <data name="MENU.PlotMarkers" xml:space="preserve">
+    <value>剧情标记</value>
+  </data>
+  <data name="MENU.PlotMockup" xml:space="preserve">
+    <value>剧情样机</value>
+  </data>
+  <data name="MENU.PlotParticles" xml:space="preserve">
+    <value>剧情颗粒</value>
+  </data>
+  <data name="MENU.PlotQE" xml:space="preserve">
+    <value>剧情QE</value>
+  </data>
+  <data name="MENU.PlotSincFunction" xml:space="preserve">
+    <value>剧情正弦函数</value>
+  </data>
+  <data name="MENU.PlotWave" xml:space="preserve">
+    <value>剧情波</value>
+  </data>
+  <data name="MENU.PlotWavelet" xml:space="preserve">
+    <value>剧情小波</value>
   </data>
 </root>
