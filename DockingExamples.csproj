@@ -22,7 +22,6 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
     <WarningLevel>4</WarningLevel>
     <Optimize>False</Optimize>
-    <LangVersion>5</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -33,7 +32,6 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
     <DebugType>none</DebugType>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>5</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IronPython">
