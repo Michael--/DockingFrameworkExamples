@@ -21,7 +21,7 @@ namespace Examples
          {
             WriteLine("Start async calculation");
 
-            // this call is asyncronous and don't stop the UI, but get an result like a sync call
+            // this call is asyncronous and don't stop the UI, but wait for a result like a sync call
             // this method can call again while other async operations already running
             string result;
 
