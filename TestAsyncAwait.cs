@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Examples
 {
-   [System.ComponentModel.ToolboxItem(true)]
+   [System.ComponentModel.ToolboxItem(false)]
    public partial class TestAsyncAwait : Gtk.Bin
    {
       public TestAsyncAwait()
@@ -18,7 +18,7 @@ namespace Examples
          m_Scroll2EndMark = textview1.Buffer.CreateMark("Scroll2End", textview1.Buffer.EndIter, true);
 
 #if NET45
-         buttonStart.Clicked += async (o, args) => 
+         buttonStart.Clicked += async (o, args) =>
          {
             WriteLine("Start async calculation");
 
