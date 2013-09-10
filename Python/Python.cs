@@ -13,7 +13,7 @@ using System.Text;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class PythonExample : Gtk.Bin, IComponent
+    public partial class PythonExample : Component, IComponent
     {
         #region implement IComponent
         public ComponentManager ComponentManager { get; set; }

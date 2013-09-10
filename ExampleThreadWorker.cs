@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class ExampleThreadWorker : Gtk.Bin, Docking.Components.IComponent
+    public partial class ExampleThreadWorker : Docking.Components.Component, Docking.Components.IComponent
     {
         public ExampleThreadWorker ()
         {

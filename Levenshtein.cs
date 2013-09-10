@@ -7,7 +7,7 @@ using Docking;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class Levenshtein : Gtk.Bin, IComponent
+    public partial class Levenshtein : Component, IComponent
     {
         #region implement IComponent
         public ComponentManager ComponentManager { get; set; }

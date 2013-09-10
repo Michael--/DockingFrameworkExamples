@@ -5,7 +5,7 @@ using Docking.Components;
 namespace Examples
 {
 	[System.ComponentModel.ToolboxItem(false)]
-	public partial class ExampleHelloWorld : Gtk.Bin
+	public partial class ExampleHelloWorld : Component
 	{
 		public ExampleHelloWorld ()
 		{

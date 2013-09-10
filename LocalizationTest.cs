@@ -11,7 +11,7 @@ namespace Examples
 {
 
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class LocalizationTest : Gtk.Bin, ILocalizableComponent, IComponentInteract
+   public partial class LocalizationTest : Component, ILocalizableComponent, IComponentInteract
    {
       public LocalizationTest()
       {

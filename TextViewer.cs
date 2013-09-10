@@ -8,7 +8,7 @@ using Gtk;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class TextViewer : Gtk.Bin, IComponent, IFileOpen
+    public partial class TextViewer : Component, IComponent, IFileOpen
     {       
         #region implement IComponent
         public ComponentManager ComponentManager { get; set; }

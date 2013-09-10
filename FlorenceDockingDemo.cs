@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace Examples
 {
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class FlorenceDockingDemo : Gtk.Bin
+   public partial class FlorenceDockingDemo : Component
    {
       public FlorenceDockingDemo(Type demo)
       {

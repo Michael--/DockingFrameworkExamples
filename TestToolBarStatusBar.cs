@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Examples.TestToolAndStatusBar
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class TestToolBarStatusBar : Gtk.Bin, IComponent, IComponentInteract
+    public partial class TestToolBarStatusBar : Component, IComponent, IComponentInteract
     {
         public TestToolBarStatusBar ()
         {

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace Examples.VirtualList
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class VirtualListTest : Gtk.Bin, IComponent
+    public partial class VirtualListTest : Component, IComponent
     {
         public VirtualListTest ()
         {

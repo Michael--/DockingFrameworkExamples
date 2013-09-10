@@ -10,7 +10,7 @@ using System.Linq;
 namespace Examples
 {
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class TestAsyncAwait : Gtk.Bin
+   public partial class TestAsyncAwait : Component
    {
       public TestAsyncAwait()
       {
