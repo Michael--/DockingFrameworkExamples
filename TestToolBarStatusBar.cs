@@ -48,7 +48,7 @@ namespace Examples.TestToolAndStatusBar
         }
 
 
-        #region implement IComponent
+        #region IComponent
         public ComponentManager ComponentManager { get; set; }
 
         void IComponent.Loaded(DockItem item)
@@ -61,7 +61,7 @@ namespace Examples.TestToolAndStatusBar
 
         #endregion
 
-        #region implement IComponentInteract
+        #region IComponentInteract
         void IComponentInteract.Added(object item)
         {
             if (item is IProperty)

@@ -191,8 +191,7 @@ namespace Examples
             }
         }
 
-
-        #region implement IComponent
+        #region IComponent
 
         public ComponentManager ComponentManager { get; set; }
 

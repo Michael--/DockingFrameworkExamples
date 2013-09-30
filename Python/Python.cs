@@ -15,7 +15,7 @@ namespace Examples
     [System.ComponentModel.ToolboxItem(false)]
     public partial class PythonExample : Component, IComponent
     {
-        #region implement IComponent
+        #region IComponent
         public ComponentManager ComponentManager { get; set; }
         
         void IComponent.Loaded(DockItem item)

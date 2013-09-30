@@ -10,7 +10,7 @@ namespace Examples
     [System.ComponentModel.ToolboxItem(false)]
     public partial class TextViewer : Component, IComponent, IFileOpen
     {       
-        #region implement IComponent
+        #region IComponent
         public ComponentManager ComponentManager { get; set; }
         
         void IComponent.Loaded(DockItem item)
@@ -23,7 +23,7 @@ namespace Examples
 
         #endregion
 
-        #region implement IFileOpen
+        #region IFileOpen
 
         List<FileFilter> IFileOpen.SupportedFileTypes()
         {
