@@ -207,10 +207,10 @@
   <data name="MENU.TextViewer" xml:space="preserve">
     <value>Text Viewer</value>
   </data>
-  <data name="MENU.Thread Worker" xml:space="preserve">
-    <value>Thread Worker</value>
-  </data>
   <data name="MENU.Virtual List Test" xml:space="preserve">
     <value>Test for VirtualList Widget</value>
+  </data>
+  <data name="MENU.Worker Threads" xml:space="preserve">
+    <value>Worker Threads</value>
   </data>
 </root>

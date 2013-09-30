@@ -153,13 +153,13 @@
   <data name="MENU.TextViewer" xml:space="preserve">
     <value>Textbetrachter</value>
   </data>
-  <data name="MENU.Thread Worker" xml:space="preserve">
-    <value>Test für Threads</value>
-  </data>
   <data name="MENU.Test Toolbar and Statusbar" xml:space="preserve">
     <value>Test für Toolbar und Statuszeile</value>
   </data>
   <data name="MENU.Virtual List Test" xml:space="preserve">
     <value>Test für VirtualList Widget</value>
+  </data>
+  <data name="MENU.Worker Threads" xml:space="preserve">
+    <value>Worker Threads</value>
   </data>
 </root>

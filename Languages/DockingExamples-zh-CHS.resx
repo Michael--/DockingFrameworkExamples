@@ -156,9 +156,6 @@
   <data name="MENU.TextViewer" xml:space="preserve">
     <value>文本查看器</value>
   </data>
-  <data name="MENU.Thread Worker" xml:space="preserve">
-    <value />
-  </data>
   <data name="MENU.Virtual List Test" xml:space="preserve">
     <value>虚拟列表测试</value>
   </data>
@@ -211,6 +208,9 @@
     <value />
   </data>
   <data name="MENU.PlotWavelet" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MENU.Worker Threads" xml:space="preserve">
     <value />
   </data>
 </root>
