@@ -121,13 +121,13 @@ namespace Examples
 
     #region Starter / Entry Point
     
-    public class ExamplePythonFactory : ComponentFactory
+    public class PythonExampleFactory : ComponentFactory
     {
         public override Type TypeOfInstance { get { return typeof(PythonExample); } }
         public override String MenuPath { get { return @"View\Examples\Python"; } }
         public override String Comment { get { return "Python scriping example"; } }
         public override Mode Options { get { return Mode.CloseOnHide; } }
-        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource ("Examples.HelloWorld-16.png"); } }
+        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
     }
     
     #endregion

@@ -113,13 +113,13 @@ namespace Examples.TestToolAndStatusBar
 
     #region Starter / Entry Point
 
-    public class Factory : ComponentFactory
+    public class TestToolBarStatusBarFactory : ComponentFactory
     {
         public override Type TypeOfInstance { get { return typeof(TestToolBarStatusBar); } }
         public override String MenuPath { get { return @"View\Examples\Test Toolbar and Statusbar"; } }
         public override String Comment { get { return "Example using toolbar and status bar"; } }
         public override Mode Options { get { return Mode.CloseOnHide; } }
-        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource ("Examples.TestToolBarStatusBar-16.png"); } }
+        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.TestToolBarStatusBar-16.png"); } }
     }
 
     #endregion

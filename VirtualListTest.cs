@@ -68,13 +68,13 @@ namespace Examples.VirtualList
 
 #region Starter / Entry Point
 
-public class Factory : ComponentFactory
+public class VirtualListTestFactory : ComponentFactory
 {
     public override Type TypeOfInstance { get { return typeof(VirtualListTest); } }
     public override String MenuPath { get { return @"View\Examples\Virtual List Test"; } }
     public override String Comment { get { return "Test widget for testing virtual list view"; } }
     public override Mode Options { get { return Mode.MultipleInstance; } }
-    public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource ("Examples.VirtualListTest-16.png"); } }
+    public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.VirtualListTest-16.png"); } }
 }
 
 #endregion

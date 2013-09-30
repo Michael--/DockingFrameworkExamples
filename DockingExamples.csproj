@@ -101,7 +101,7 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="HelloWorld-16.png" />
+    <EmbeddedResource Include="Resources\HelloWorld-16.png" />
     <Content Include="Languages\DockingExamples-en-US.resx">
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
@@ -112,9 +112,9 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="TestToolBarStatusBar-16.png" />
-    <EmbeddedResource Include="VirtualListTest-16.png" />
-    <EmbeddedResource Include="WorkerThread-16.png" />
+    <EmbeddedResource Include="Resources\TestToolBarStatusBar-16.png" />
+    <EmbeddedResource Include="Resources\VirtualListTest-16.png" />
+    <EmbeddedResource Include="Resources\WorkerThread-16.png" />
     <EmbeddedResource Include="Python\test2.py" />
     <EmbeddedResource Include="Python\test1.py" />
     <EmbeddedResource Include="Python\test3.py" />

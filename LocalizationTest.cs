@@ -81,7 +81,7 @@ namespace Examples
       public override String MenuPath { get { return @"View\Examples\Localization Test"; } }
       public override String Comment { get { return "Localization example"; } }
       public override Mode Options { get { return Mode.CloseOnHide; } }
-      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource ("Examples.HelloWorld-16.png"); } }
+      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
    }
 
    #endregion
