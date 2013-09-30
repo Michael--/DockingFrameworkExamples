@@ -82,7 +82,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="Examples.ExampleThreadWorker" design-size="468 300">
+  <widget class="Gtk.Bin" id="Examples.ExampleWorkerThread" design-size="468 300">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -96,7 +96,7 @@
             <child>
               <widget class="Gtk.Label" id="label1">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Docking.Tools.ThreadWorker</property>
+                <property name="LabelProp" translatable="yes">Docking.Tools.WorkerThread</property>
               </widget>
               <packing>
                 <property name="Position">0</property>

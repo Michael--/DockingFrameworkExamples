@@ -77,8 +77,8 @@
     <Compile Include="gtk-gui\Examples.VirtualList.VirtualListTest.cs" />
     <Compile Include="ExampleHelloWorld.cs" />
     <Compile Include="gtk-gui\Examples.ExampleHelloWorld.cs" />
-    <Compile Include="ExampleThreadWorker.cs" />
-    <Compile Include="gtk-gui\Examples.ExampleThreadWorker.cs" />
+    <Compile Include="ExampleWorkerThread.cs" />
+    <Compile Include="gtk-gui\Examples.ExampleWorkerThread.cs" />
     <Compile Include="Levenshtein.cs" />
     <Compile Include="gtk-gui\Examples.Levenshtein.cs" />
     <Compile Include="gtk-gui\Examples.PythonExample.cs" />
@@ -114,7 +114,7 @@
     </Content>
     <EmbeddedResource Include="TestToolBarStatusBar-16.png" />
     <EmbeddedResource Include="VirtualListTest-16.png" />
-    <EmbeddedResource Include="ThreadWorker-16.png" />
+    <EmbeddedResource Include="WorkerThread-16.png" />
     <EmbeddedResource Include="Python\test2.py" />
     <EmbeddedResource Include="Python\test1.py" />
     <EmbeddedResource Include="Python\test3.py" />

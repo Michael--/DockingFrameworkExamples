@@ -10,9 +10,9 @@ using System.Collections.Generic;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class ExampleThreadWorker : Docking.Components.Component, Docking.Components.IComponent
+    public partial class ExampleWorkerThread : Docking.Components.Component, Docking.Components.IComponent
     {
-        public ExampleThreadWorker ()
+        public ExampleWorkerThread ()
         {
             this.Build();
             this.Name = "Threading";
@@ -32,10 +32,10 @@ namespace Examples
 
         private List<CancellationTokenSource> cancelTokenList = new List<CancellationTokenSource>();
 
-        private ThreadWorker mThreadWorker = null;
-        private ThreadWorker mThreadEndless = null;
-        private Object mThreadWorkerSemaphore = new object();
-        private Object mThreadEndlessSemaphore = new object();
+        private WorkerThread mWorkerThread = null;
+        private WorkerThread mEndlessThread = null;
+        private Object mWorkerThreadSemaphore = new object();
+        private Object mEndlessThreadSemaphore = new object();
 
         String myThreadHeader;
         static int instances = 0;
@@ -50,19 +50,19 @@ namespace Examples
 				return;
 
             buttonStartThread.Sensitive = false;
-            lock(mThreadWorkerSemaphore)
+            lock(mWorkerThreadSemaphore)
 			{
 				myThreadId++;
 				String name = String.Format("{0}:{1}", myThreadHeader, myThreadId);
-				String description = "Example how to use ThreadWorker";
+				String description = "Example how to use WorkerThread";
 				Message(String.Format("Thread {0} started", name));
-				mThreadWorker = new ThreadWorker(name, description);
-				mThreadWorker.WorkerSupportsCancellation = true;
-				mThreadWorker.WorkerReportsProgress = true;
-				mThreadWorker.DoWork += new DoWorkEventHandler(mThreadWorker_DoWork);
-				mThreadWorker.ProgressChanged += new ProgressChangedEventHandler(mThreadWorker_ProgressChanged);
-				mThreadWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(mThreadWorker_RunWorkerCompleted);
-				mThreadWorker.RunWorkerAsync(ThreadPriority.BelowNormal);
+				mWorkerThread = new WorkerThread(name, description);
+				mWorkerThread.WorkerSupportsCancellation = true;
+				mWorkerThread.WorkerReportsProgress = true;
+				mWorkerThread.DoWork += new DoWorkEventHandler(mWorkerThread_DoWork);
+				mWorkerThread.ProgressChanged += new ProgressChangedEventHandler(mWorkerThread_ProgressChanged);
+				mWorkerThread.RunWorkerCompleted += new RunWorkerCompletedEventHandler(mWorkerThread_RunWorkerCompleted);
+				mWorkerThread.RunWorkerAsync(ThreadPriority.BelowNormal);
 			}
         }
 
@@ -73,53 +73,53 @@ namespace Examples
             buttonEndlessStart.Sensitive = false;
             buttonEndlessStop.Sensitive = true;
 
-            lock(mThreadEndlessSemaphore)
+            lock(mEndlessThreadSemaphore)
             {
                 myThreadId++;
                 String name = String.Format("Endless {0}:{1}", myThreadHeader, myThreadId);
-                String description = "Endless ThreadWorker";
+                String description = "Endless WorkerThread";
                 Message(String.Format("Thread {0} started", name));
-                mThreadEndless = new ThreadWorker(name, description);
-                mThreadEndless.WorkerSupportsCancellation = true;
-                mThreadEndless.WorkerReportsProgress = false;
-                mThreadEndless.DoWork += new DoWorkEventHandler(mThreadEndless_DoWork);
-                mThreadEndless.RunWorkerCompleted += new RunWorkerCompletedEventHandler(mThreadEndless_RunWorkerCompleted);
-                mThreadEndless.RunWorkerAsync(ThreadPriority.BelowNormal);
+                mEndlessThread = new WorkerThread(name, description);
+                mEndlessThread.WorkerSupportsCancellation = true;
+                mEndlessThread.WorkerReportsProgress = false;
+                mEndlessThread.DoWork += new DoWorkEventHandler(mThreadEndless_DoWork);
+                mEndlessThread.RunWorkerCompleted += new RunWorkerCompletedEventHandler(mThreadEndless_RunWorkerCompleted);
+                mEndlessThread.RunWorkerAsync(ThreadPriority.BelowNormal);
             }
         }
 
 
         public void RequestStop()
 		{
-			lock(mThreadWorkerSemaphore)
+			lock(mWorkerThreadSemaphore)
 			{
-				if(mThreadWorker != null)
-					mThreadWorker.CancelAsync();
+				if(mWorkerThread != null)
+					mWorkerThread.CancelAsync();
 				foreach(CancellationTokenSource t in cancelTokenList)
 					t.Cancel();
 			}
-            lock(mThreadEndlessSemaphore)
+            lock(mEndlessThreadSemaphore)
             {
-                if (mThreadEndless != null)
-                    mThreadEndless.CancelAsync();
+                if (mEndlessThread != null)
+                    mEndlessThread.CancelAsync();
             }
         }
 
         // complete message
-        private void mThreadWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void mWorkerThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			lock(mThreadWorkerSemaphore)
+			lock(mWorkerThreadSemaphore)
 			{
 				Message(String.Format("Thread {0}:{1} {2}",
 	                                  myThreadHeader, myThreadId,
 	                                  e.Cancelled ? "Canceled" : "completed"));
-				mThreadWorker = null;
+				mWorkerThread = null;
 			}
             buttonStartThread.Sensitive = true;
         }
 
         // progress message
-        private void mThreadWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void mWorkerThread_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             Gtk.Application.Invoke(delegate
             {
@@ -138,9 +138,9 @@ namespace Examples
             });
         }
 
-        private void mThreadWorker_DoWork(object sender, DoWorkEventArgs e)
+        private void mWorkerThread_DoWork(object sender, DoWorkEventArgs e)
         {
-            ThreadWorker worker = sender as ThreadWorker;
+            WorkerThread worker = sender as WorkerThread;
 
             int duration = rnd.Next() % 10000 + 10000;
             int steps = 100;
@@ -164,12 +164,12 @@ namespace Examples
         // complete message
         private void mThreadEndless_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            lock(mThreadEndlessSemaphore)
+            lock(mEndlessThreadSemaphore)
             {
                 Message(String.Format("Thread {0}:{1} {2}",
                                       myThreadHeader, myThreadId,
                                       e.Cancelled ? "Canceled" : "completed"));
-                mThreadEndless = null;
+                mEndlessThread = null;
             }
             buttonEndlessStart.Sensitive = true;
             buttonEndlessStop.Sensitive = false;
@@ -177,7 +177,7 @@ namespace Examples
 
         private void mThreadEndless_DoWork(object sender, DoWorkEventArgs e)
         {
-            ThreadWorker worker = sender as ThreadWorker;
+            WorkerThread worker = sender as WorkerThread;
             
             while(true)
             {
@@ -255,32 +255,32 @@ namespace Examples
   
         protected void OnButtonStartThreadClicked (object sender, EventArgs e)
         {
-            if (mThreadWorker == null)
+            if (mWorkerThread == null)
                 StartNewThread();
         }
 
         protected void OnButtonEndlessStartClicked (object sender, EventArgs e)
         {
-            if (mThreadEndless == null)
+            if (mEndlessThread == null)
                 StartEndlessThread();
         }
 
         protected void OnButtonEndlessStopClicked (object sender, EventArgs e)
         {
-            if (mThreadEndless != null)
-                mThreadEndless.CancelAsync();
+            if (mEndlessThread != null)
+                mEndlessThread.CancelAsync();
         }
     }
 
     #region Starter / Entry Point
 
-	public class ExampleThreadWorkertFactory : ComponentFactory
+	public class ExampleWorkerThreadFactory : ComponentFactory
     {
-        public override Type TypeOfInstance { get { return typeof(ExampleThreadWorker); } }
-        public override String MenuPath { get { return @"View\Examples\Thread Worker"; } }
-        public override String Comment { get { return "Example thread worker widget, starts some worker thread(s)"; } }
+        public override Type TypeOfInstance { get { return typeof(ExampleWorkerThread); } }
+        public override String MenuPath { get { return @"View\Examples\WorkerThread"; } }
+        public override String Comment { get { return "Example for using worker threads"; } }
         public override Mode Options { get { return Mode.MultipleInstance; } }
-        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource ("Examples.ThreadWorker-16.png"); } }
+        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource ("Examples.WorkerThread-16.png"); } }
     }
 
     #endregion
