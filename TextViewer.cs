@@ -14,13 +14,13 @@ namespace Examples
         public ComponentManager ComponentManager { get; set; }
         
         void IComponent.Loaded(DockItem item)
-        {
-        }
+        {}
         
         void IComponent.Save()
-        {
-        }
+        {}
         
+        bool IComponent.Closed() { return true; }
+
         #endregion
 
         #region implement IFileOpen

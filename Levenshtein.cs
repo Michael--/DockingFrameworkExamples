@@ -20,9 +20,10 @@ namespace Examples
         }
         
         void IComponent.Save()
-        {
-        }
+        {}
         
+        bool IComponent.Closed() { return true; }
+
         #endregion
 
         public Levenshtein()

@@ -24,9 +24,10 @@ namespace Examples
         }
         
         void IComponent.Save()
-        {
-        }
+        {}
         
+        bool IComponent.Closed() { return true; }
+
         #endregion
 
         #region MAIN

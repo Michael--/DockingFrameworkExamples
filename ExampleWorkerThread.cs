@@ -197,13 +197,14 @@ namespace Examples
         public ComponentManager ComponentManager { get; set; }
 
         void Docking.Components.IComponent.Loaded(DockItem item)
-        {
-        }
+        {}
 
         void Docking.Components.IComponent.Save()
         {
             RequestStop();
         }
+
+        bool Docking.Components.IComponent.Closed() { return true; }
 
         #endregion
 

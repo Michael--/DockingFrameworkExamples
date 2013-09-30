@@ -31,7 +31,7 @@ namespace Examples.VirtualList
         }
 
 
-        #region implement IComponent
+        #region IComponent
         public ComponentManager ComponentManager { get; set; }
 
         void IComponent.Loaded(DockItem item)
@@ -61,6 +61,8 @@ namespace Examples.VirtualList
         {
             virtuallistview1.SavePersistence();
         }
+
+        bool IComponent.Closed() { return true; }
 
         #endregion
     }
