@@ -25,7 +25,8 @@ namespace Examples
       void ILocalizableComponent.LocalizationChanged(DockItem item) {}
 
 
-      #region IComponentInteract
+      #region Component - Interaction
+
       List<IProperty> mProperty = new List<IProperty>();
       LocalizationProperties mProperties = new LocalizationProperties();
 

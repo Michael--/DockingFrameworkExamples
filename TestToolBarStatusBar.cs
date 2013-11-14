@@ -61,7 +61,8 @@ namespace Examples.TestToolAndStatusBar
 
         #endregion
 
-        #region IComponentInteract
+        #region Component - Interaction
+
         public override void ComponentAdded(object item)
         {
             if (item is IProperty)
