@@ -11,7 +11,7 @@ namespace Examples
 {
 
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class LocalizationTest : Component, ILocalizableComponent, IComponentInteract
+   public partial class LocalizationTest : Component, ILocalizableComponent
    {
       public LocalizationTest()
       {
@@ -25,11 +25,12 @@ namespace Examples
       void ILocalizableComponent.LocalizationChanged(DockItem item) {}
 
 
-      #region IComponentInteract
+      #region Component - Interaction
+
       List<IProperty> mProperty = new List<IProperty>();
       LocalizationProperties mProperties = new LocalizationProperties();
 
-      void IComponentInteract.Added(object item)
+      public override void ComponentAdded(object item)
       {
          if (item is IProperty)
          {
@@ -43,7 +44,7 @@ namespace Examples
          }
       }
 
-      void IComponentInteract.Removed(object item)
+      public override void ComponentRemoved(object item)
       {
          if (item is IProperty)
          {
@@ -52,11 +53,7 @@ namespace Examples
          }
       }
 
-      void IComponentInteract.Visible(object item, bool visible)
-      {
-      }
-
-      void IComponentInteract.Current(object item)
+      public override void FocusChanged(object item)
       {
          if (item == this)
             foreach (IProperty p in mProperty)

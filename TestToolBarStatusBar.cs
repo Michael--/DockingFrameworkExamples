@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Examples.TestToolAndStatusBar
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class TestToolBarStatusBar : Component, IComponent, IComponentInteract
+    public partial class TestToolBarStatusBar : Component, IComponent
     {
         public TestToolBarStatusBar ()
         {
@@ -61,20 +61,21 @@ namespace Examples.TestToolAndStatusBar
 
         #endregion
 
-        #region IComponentInteract
-        void IComponentInteract.Added(object item)
+        #region Component - Interaction
+
+        public override void ComponentAdded(object item)
         {
             if (item is IProperty)
                 mPropertyInterface = item as IProperty;
         }
 
-        void IComponentInteract.Removed(object item)
+        public override void ComponentRemoved(object item)
         {
             if (item == mPropertyInterface)
                 mPropertyInterface = null;
         }
 
-        void IComponentInteract.Visible(object item, bool visible)
+        public override void VisibilityChanged(object item, bool visible)
         {
             if (visible && !mAdded)
             {
@@ -93,7 +94,7 @@ namespace Examples.TestToolAndStatusBar
             UpdateMessageText();
         }
 
-        void IComponentInteract.Current(object item)
+        public override void FocusChanged(object item)
         {
             if (this == item && mPropertyInterface != null)
                 mPropertyInterface.SetObject(this);
