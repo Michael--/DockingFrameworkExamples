@@ -17,7 +17,8 @@ namespace Examples
          this.Build();
          m_Scroll2EndMark = textview1.Buffer.CreateMark("Scroll2End", textview1.Buffer.EndIter, true);
 
-         buttonStart.Clicked += async (o, args) =>
+#if NET45
+         buttonStart.Clicked += async (sender, args) =>
          {
             WriteLine("Start async calculation");
 
@@ -35,16 +36,24 @@ namespace Examples
 
             WriteLine(result);
          };
+#else
+         buttonStart.Clicked += (sender, args) =>
+         {
+            ComponentManager.MessageWriteLine("sorry, this is only possible with .NET 4.5 or higher");
+         };
+#endif
       }
 
       Gtk.TextMark m_Scroll2EndMark;
       int count = 0;
       Random rnd = new Random();
 
+#if NET45
       public Task<string> calcDataAsync(string p)
       {
          return Task.Run(() => calcData(p));
       }
+#endif
 
       public string calcData(string p)
       {
