@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Examples.TestToolAndStatusBar
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class TestToolBarStatusBar : Component, IComponent
+    public partial class TestToolBarStatusBar : Component
     {
         public TestToolBarStatusBar ()
         {
@@ -46,20 +46,6 @@ namespace Examples.TestToolAndStatusBar
         {
             label3.Text = String.Format ("Messages pushed to status bar: {0}", mStack.Count);
         }
-
-
-        #region IComponent
-        public ComponentManager ComponentManager { get; set; }
-
-        void IComponent.Loaded(DockItem item)
-        {}
-
-        void IComponent.Save()
-        {}
-
-        bool IComponent.Closed() { return true; }
-
-        #endregion
 
         #region Component - Interaction
 

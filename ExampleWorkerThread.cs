@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class ExampleWorkerThread : Docking.Components.Component, Docking.Components.IComponent
+    public partial class ExampleWorkerThread : Docking.Components.Component
     {
         public ExampleWorkerThread ()
         {
@@ -191,21 +191,12 @@ namespace Examples
             }
         }
 
-        #region IComponent
-
-        public ComponentManager ComponentManager { get; set; }
-
-        void Docking.Components.IComponent.Loaded(DockItem item)
-        {}
-
-        void Docking.Components.IComponent.Save()
+        public override void Save()
         {
+            base.Save();
+
             RequestStop();
         }
-
-        bool Docking.Components.IComponent.Closed() { return true; }
-
-        #endregion
 
         protected void OnButton1Clicked(object sender, EventArgs e)
         {

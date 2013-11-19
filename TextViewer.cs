@@ -8,21 +8,8 @@ using Gtk;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class TextViewer : Component, IComponent, IFileOpen
+    public partial class TextViewer : Component, IFileOpen
     {       
-        #region IComponent
-        public ComponentManager ComponentManager { get; set; }
-        
-        void IComponent.Loaded(DockItem item)
-        {}
-        
-        void IComponent.Save()
-        {}
-        
-        bool IComponent.Closed() { return true; }
-
-        #endregion
-
         #region IFileOpen
 
         List<FileFilter> IFileOpen.SupportedFileTypes()

@@ -13,22 +13,14 @@ using System.Text;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class PythonExample : Component, IComponent
+    public partial class PythonExample : Component
     {
-        #region IComponent
-        public ComponentManager ComponentManager { get; set; }
-        
-        void IComponent.Loaded(DockItem item)
+        public override void Loaded(DockItem item)
         {
+            base.Loaded(item);
+
             InitTests();
         }
-        
-        void IComponent.Save()
-        {}
-        
-        bool IComponent.Closed() { return true; }
-
-        #endregion
 
         #region MAIN
 

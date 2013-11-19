@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace Examples.VirtualList
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class VirtualListTest : Component, IComponent
+    public partial class VirtualListTest : Component
     {
         public VirtualListTest ()
         {
@@ -30,12 +30,10 @@ namespace Examples.VirtualList
             return "?";
         }
 
-
-        #region IComponent
-        public ComponentManager ComponentManager { get; set; }
-
-        void IComponent.Loaded(DockItem item)
+        public override void Loaded(DockItem item)
         {
+            base.Loaded(item);
+
             virtuallistview1.ComponentManager = this.ComponentManager;
             virtuallistview1.LoadPersistence();
 
@@ -57,14 +55,12 @@ namespace Examples.VirtualList
             virtuallistview1.TriggerRepaint();
         }
 
-        void IComponent.Save()
+        public override void Save()
         {
+            base.Save();
+
             virtuallistview1.SavePersistence();
         }
-
-        bool IComponent.Closed() { return true; }
-
-        #endregion
     }
 
 

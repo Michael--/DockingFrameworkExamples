@@ -7,25 +7,8 @@ using Docking;
 namespace Examples
 {
     [System.ComponentModel.ToolboxItem(false)]
-    public partial class Levenshtein : Component, IComponent
+    public partial class Levenshtein : Component
     {
-        #region IComponent
-        public ComponentManager ComponentManager { get; set; }
-        
-        void IComponent.Loaded(DockItem item)
-        {
-            // attach python
-            m_Levenshtein = new _Levenshtein(this);
-            ComponentManager.ScriptScope.SetVariable("lev", m_Levenshtein);
-        }
-        
-        void IComponent.Save()
-        {}
-        
-        bool IComponent.Closed() { return true; }
-
-        #endregion
-
         public Levenshtein()
         {
             this.Build();
@@ -56,6 +39,15 @@ namespace Examples
             TokenizeText();
             labelBestMatch.LabelProp = "- ";
         }
+
+        public override void Loaded(DockItem item)
+        {
+            base.Loaded(item);
+
+            // attach python
+            m_Levenshtein = new _Levenshtein(this);
+            ComponentManager.ScriptScope.SetVariable("lev", m_Levenshtein);
+        }      
 
         void SearchAndMark(string s)
         {
