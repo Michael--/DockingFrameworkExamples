@@ -45,9 +45,13 @@ namespace Examples
             base.Loaded(item);
 
             // attach python
-            m_Levenshtein = new _Levenshtein(this);
-            ComponentManager.ScriptScope.SetVariable("lev", m_Levenshtein);
+            m_ScriptingInstance = new LevenshteinScripting(this);
         }      
+
+        public override object GetScriptingInstance()
+        {
+            return m_ScriptingInstance;
+        }
 
         void SearchAndMark(string s)
         {
@@ -69,7 +73,7 @@ namespace Examples
 
         TextBuffer m_Buffer;
         String [] m_Token;
-        _Levenshtein m_Levenshtein;
+        LevenshteinScripting m_ScriptingInstance;
 
 
         void TokenizeText()
@@ -139,32 +143,32 @@ namespace Examples
         }
 
         // encapsulate python access
-        public class _Levenshtein
+        public class LevenshteinScripting
         {
-            public _Levenshtein(Levenshtein l)
+            public LevenshteinScripting(Levenshtein l)
             {
                 lev = l;
             }
 
             Levenshtein lev;
 
-            public string[] search(string s)
+            public string[] Search(string s)
             {
                 Byte bestkey;
                 return lev.Search(s, out bestkey);
             }
 
-            public void mark(string[] strings)
+            public void Mark(string[] strings)
             {
                 lev.Mark(strings);
             }
 
-            public void mark(string s)
+            public void Mark(string s)
             {
                 lev.Mark(new string[] { s });
             }
 
-            public void reset_mark()
+            public void ResetMark()
             {
                 lev.ResetMark();
             }
