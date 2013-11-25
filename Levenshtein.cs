@@ -97,38 +97,10 @@ namespace Examples
 
         string[] Search(String txt, out Byte distance)
         {
-            if (txt.Length > 0)
-            {
-                Byte bestKey = 255;
-                SortedDictionary<Byte, List<string>> matches = new SortedDictionary<byte, List<string>>();
-                Docking.Tools.ITextMetric tm = new Docking.Tools.Levenshtein(50);
-                foreach(string s in m_Token)
-                {
-                    Byte d = tm.distance(txt, s);
-                    if (d <= bestKey) // ignore worse matches as previously found
-                    {
-                        bestKey = d;
-                        List<string> values;
-                        if (!matches.TryGetValue(d, out values))
-                        {
-                            values = new List<string>();
-                            matches.Add(d, values);
-                        }
-                        if (!values.Contains(s))
-                            values.Add(s);
-                    }
-                }
-
-                if (matches.Count > 0)
-                {
-                    List<string> result = matches[bestKey];
-                    distance = bestKey;
-                    return result.ToArray();
-                }
-            }
-            distance = 0;
-            return null;
+            return Docking.Tools.Levenshtein.Search(m_Token, txt, out distance);
         }
+
+
 
         void MarkAll(string exp)
         {
