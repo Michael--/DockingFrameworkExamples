@@ -4,7 +4,7 @@ namespace Examples.VirtualList
 {
 	public partial class VirtualListTest
 	{
-		private global::Docking.Components.VirtualListView virtuallistview1;
+		private global::Docking.Widgets.VirtualListView virtuallistview1;
 
 		protected virtual void Build ()
 		{
@@ -13,7 +13,7 @@ namespace Examples.VirtualList
 			global::Stetic.BinContainer.Attach (this);
 			this.Name = "Examples.VirtualList.VirtualListTest";
 			// Container child Examples.VirtualList.VirtualListTest.Gtk.Container+ContainerChild
-			this.virtuallistview1 = new global::Docking.Components.VirtualListView ();
+			this.virtuallistview1 = new global::Docking.Widgets.VirtualListView ();
 			this.virtuallistview1.Events = ((global::Gdk.EventMask)(256));
 			this.virtuallistview1.Name = "virtuallistview1";
 			this.virtuallistview1.RowCount = 0;

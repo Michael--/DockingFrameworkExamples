@@ -255,7 +255,7 @@
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
-      <widget class="Docking.Components.VirtualListView" id="virtuallistview1">
+      <widget class="Docking.Widgets.VirtualListView" id="virtuallistview1">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
         <property name="RowCount">0</property>
