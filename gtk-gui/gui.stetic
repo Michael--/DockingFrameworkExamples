@@ -486,7 +486,7 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Docking.Components.LabelLocalized" id="label1">
+          <widget class="Docking.Widgets.LabelLocalized" id="label1">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">Any Content</property>
           </widget>
@@ -498,7 +498,7 @@
           </packing>
         </child>
         <child>
-          <widget class="Docking.Components.ButtonLocalized" id="button1">
+          <widget class="Docking.Widgets.ButtonLocalized" id="button1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="Type">TextOnly</property>
@@ -513,7 +513,7 @@
           </packing>
         </child>
         <child>
-          <widget class="Docking.Components.LabelLocalized" id="labellocalized1">
+          <widget class="Docking.Widgets.LabelLocalized" id="labellocalized1">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">Other Content</property>
           </widget>

@@ -5,9 +5,9 @@ namespace Examples
 	public partial class LocalizationTest
 	{
 		private global::Gtk.VBox vbox1;
-		private global::Docking.Components.LabelLocalized label1;
-		private global::Docking.Components.ButtonLocalized button1;
-		private global::Docking.Components.LabelLocalized labellocalized1;
+		private global::Docking.Widgets.LabelLocalized label1;
+		private global::Docking.Widgets.ButtonLocalized button1;
+		private global::Docking.Widgets.LabelLocalized labellocalized1;
 
 		protected virtual void Build ()
 		{
@@ -20,7 +20,7 @@ namespace Examples
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.label1 = new global::Docking.Components.LabelLocalized ();
+			this.label1 = new global::Docking.Widgets.LabelLocalized ();
 			this.label1.Name = "label1";
 			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Any Content");
 			this.vbox1.Add (this.label1);
@@ -29,7 +29,7 @@ namespace Examples
 			w1.Expand = false;
 			w1.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.button1 = new global::Docking.Components.ButtonLocalized ();
+			this.button1 = new global::Docking.Widgets.ButtonLocalized ();
 			this.button1.CanFocus = true;
 			this.button1.Name = "button1";
 			this.button1.UseUnderline = true;
@@ -40,7 +40,7 @@ namespace Examples
 			w2.Expand = false;
 			w2.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.labellocalized1 = new global::Docking.Components.LabelLocalized ();
+			this.labellocalized1 = new global::Docking.Widgets.LabelLocalized ();
 			this.labellocalized1.Name = "labellocalized1";
 			this.labellocalized1.LabelProp = global::Mono.Unix.Catalog.GetString ("Other Content");
 			this.vbox1.Add (this.labellocalized1);
