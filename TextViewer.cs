@@ -68,7 +68,6 @@ namespace Examples
         public override Type TypeOfInstance { get { return typeof(TextViewer); } }
         public override String MenuPath { get { return @"View\Examples\TextViewer"; } }
         public override String Comment { get { return "Load *.txt files"; } }
-        public override Mode Options { get { return Mode.CloseOnHide; } }
         public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
     }
 
