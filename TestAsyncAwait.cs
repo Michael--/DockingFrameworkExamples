@@ -85,7 +85,7 @@ namespace Examples
       public override Type TypeOfInstance { get { return typeof(TestAsyncAwait); } }
       public override String MenuPath { get { return @"View\Examples\Test async/await"; } }
       public override String Comment { get { return "Test the C# 5.0 feature async/await"; } }
-      public override Mode Options { get { return Mode.MultipleInstance; } }
+      public override Mode Options { get { return Mode.MultiInstance; } }
       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
    }
 

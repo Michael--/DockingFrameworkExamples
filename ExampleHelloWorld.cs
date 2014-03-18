@@ -22,7 +22,7 @@ namespace Examples
 		public override Type TypeOfInstance { get { return typeof(ExampleHelloWorld); } }
       public override String MenuPath { get { return @"View\Examples\Hello World"; } }
 		public override String Comment { get { return "minimal dockable component example"; } }
-      public override Mode Options { get { return Mode.MultipleInstance; } }
+      public override Mode Options { get { return Mode.MultiInstance; } }
       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
     }
 
