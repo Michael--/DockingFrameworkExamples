@@ -23,7 +23,7 @@ namespace Examples
        public override Type TypeOfInstance { get { return theInstance; } }
        public override String MenuPath { get { return @"View\Examples\Florence\" + theInstance.Name; } }
        public override String Comment { get { return theInstance.Name + " example"; } }
-       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
+       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
    }
 
    public class FlorenceFactory1 : FlorenceFactoryBase

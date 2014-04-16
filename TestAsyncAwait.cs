@@ -86,7 +86,7 @@ namespace Examples
       public override String MenuPath { get { return @"View\Examples\Test async/await"; } }
       public override String Comment { get { return "Test the C# 5.0 feature async/await"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
-      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
+      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
    }
 
    #endregion

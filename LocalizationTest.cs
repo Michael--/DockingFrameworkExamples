@@ -77,7 +77,7 @@ namespace Examples
       public override Type TypeOfInstance { get { return typeof(LocalizationTest); } }
       public override String MenuPath { get { return @"View\Examples\Localization Test"; } }
       public override String Comment { get { return "Localization example"; } }
-      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.HelloWorld-16.png"); } }
+      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
    }
 
    #endregion
