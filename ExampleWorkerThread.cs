@@ -195,7 +195,7 @@ namespace Examples
         {
             base.Save();
 
-            RequestStop();
+            RequestStop(); // TODO this is the wrong place! RequestStop() should be called when the component is about to be CLOSED, not when SAVED!
         }
 
         protected void OnButton1Clicked(object sender, EventArgs e)
