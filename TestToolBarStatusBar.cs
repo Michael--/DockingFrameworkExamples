@@ -51,8 +51,8 @@ namespace Examples.TestToolAndStatusBar
 
         public override void ComponentAdded(object item)
         {
-            if (item is IProperty)
-                mPropertyInterface = item as IProperty;
+            if (item is IPropertyViewer)
+                mPropertyInterface = item as IPropertyViewer;
         }
 
         public override void ComponentRemoved(object item)
@@ -89,7 +89,7 @@ namespace Examples.TestToolAndStatusBar
         #endregion
 
         #region variables, properties
-        IProperty mPropertyInterface;
+        IPropertyViewer mPropertyInterface;
         ToolButton mPush;
         ToolButton mPop;
         bool mAdded = false;

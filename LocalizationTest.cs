@@ -27,14 +27,14 @@ namespace Examples
 
       #region Component - Interaction
 
-      List<IProperty> mProperty = new List<IProperty>();
+      List<IPropertyViewer> mProperty = new List<IPropertyViewer>();
       LocalizationProperties mProperties = new LocalizationProperties();
 
       public override void ComponentAdded(object item)
       {
-         if (item is IProperty)
+         if (item is IPropertyViewer)
          {
-            IProperty property = item as IProperty;
+            IPropertyViewer property = item as IPropertyViewer;
 
             mProperty.Add(property);
             property.PropertyChanged += (e) =>
@@ -46,9 +46,9 @@ namespace Examples
 
       public override void ComponentRemoved(object item)
       {
-         if (item is IProperty)
+         if (item is IPropertyViewer)
          {
-            IProperty property = item as IProperty;
+            IPropertyViewer property = item as IPropertyViewer;
             mProperty.Remove(property);
          }
       }
@@ -56,7 +56,7 @@ namespace Examples
       public override void FocusChanged(object item)
       {
          if (item == this)
-            foreach (IProperty p in mProperty)
+            foreach (IPropertyViewer p in mProperty)
                p.SetObject(mProperties);
       }
       #endregion
