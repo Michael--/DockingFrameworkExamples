@@ -22,16 +22,14 @@ namespace Examples
 
         String IFileOpen.TryOpenFile(String filename)
         {
-            if(!File.Exists(filename))
+            if(!sFileFilter_TXT.Matches(filename) || !File.Exists(filename))
                 return null;
-            if(sFileFilter_TXT.Matches(filename))
-               return sFileFilter_TXT.Name;
-            return null;
+            return sFileFilter_TXT.Name;
         }
         
         bool IFileOpen.OpenFile(String filename)
         {
-            if(!File.Exists(filename) || !sFileFilter_TXT.Matches(filename))
+            if(!sFileFilter_TXT.Matches(filename) || !File.Exists(filename))
                 return false;
 
             using (System.IO.StreamReader reader = new System.IO.StreamReader(filename))
