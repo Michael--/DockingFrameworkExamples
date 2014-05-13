@@ -13,25 +13,25 @@ namespace Examples
     {       
         #region IFileOpen
 
-        static FileFilterExt mFileFilter_TXT = new FileFilterExt("*.txt", "Text File");
+        static FileFilterExt sFileFilter_TXT = new FileFilterExt("*.txt", "Text File");
 
         List<FileFilterExt> IFileOpen.SupportedFileTypes()
         {
-           return new List<FileFilterExt>() { mFileFilter_TXT };
+           return new List<FileFilterExt>() { sFileFilter_TXT };
         }
 
         String IFileOpen.TryOpenFile(String filename)
         {
             if(!File.Exists(filename))
                 return null;
-            if(mFileFilter_TXT.Matches(filename))
-               return mFileFilter_TXT.Name;
+            if(sFileFilter_TXT.Matches(filename))
+               return sFileFilter_TXT.Name;
             return null;
         }
         
         bool IFileOpen.OpenFile(String filename)
         {
-            if(!File.Exists(filename) || !mFileFilter_TXT.Matches(filename))
+            if(!File.Exists(filename) || !sFileFilter_TXT.Matches(filename))
                 return false;
 
             using (System.IO.StreamReader reader = new System.IO.StreamReader(filename))
