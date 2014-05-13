@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Docking.Components;
 using Docking;
 using Gtk;
+using Docking.Tools;
 
 namespace Examples
 {
@@ -12,34 +13,25 @@ namespace Examples
     {       
         #region IFileOpen
 
-        List<FileFilter> IFileOpen.SupportedFileTypes()
+        static FileFilterExt mFileFilter_TXT = new FileFilterExt("*.txt", "Text File");
+
+        List<FileFilterExt> IFileOpen.SupportedFileTypes()
         {
-           List<FileFilter> result = new List<FileFilter>();
-
-           FileFilter txtfile = new FileFilter();
-           txtfile.AddPattern("*.txt");
-           txtfile.Name = "*.txt - Text File";
-           result.Add(txtfile);
-
-           return result;
+           return new List<FileFilterExt>() { mFileFilter_TXT };
         }
 
         String IFileOpen.TryOpenFile(String filename)
         {
-            if (!File.Exists(filename))
+            if(!File.Exists(filename))
                 return null;
-
-            String ext = System.IO.Path.GetExtension(filename);
-            
-            if (ext.ToLower() == ".txt")
-                return "Text File";
-
+            if(mFileFilter_TXT.Matches(filename))
+               return mFileFilter_TXT.Name;
             return null;
         }
         
         bool IFileOpen.OpenFile(String filename)
         {
-            if (!File.Exists(filename))
+            if(!File.Exists(filename) || !mFileFilter_TXT.Matches(filename))
                 return false;
 
             using (System.IO.StreamReader reader = new System.IO.StreamReader(filename))
@@ -50,9 +42,11 @@ namespace Examples
                string txt = reader.ReadToEnd();
                textview.Buffer.Clear();
                textview.Buffer.InsertAtCursor(txt);
+
                return true;
             }
         }
+
         #endregion
 
         #region MAIN
