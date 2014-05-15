@@ -35,7 +35,7 @@ namespace Examples.VirtualList
             base.Loaded(item);
 
             virtuallistview1.ComponentManager = this.ComponentManager;
-            virtuallistview1.LoadPersistence();
+            virtuallistview1.LoadPersistence(item);
 
             // callback requesting data to display
             virtuallistview1.GetContentDelegate = GetContent;
@@ -59,7 +59,7 @@ namespace Examples.VirtualList
         {
             base.Save();
 
-            virtuallistview1.SavePersistence();
+            virtuallistview1.SavePersistence(DockItem);
         }
     }
 
