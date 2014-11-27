@@ -52,17 +52,11 @@ namespace Examples.TestToolAndStatusBar
         public override void ComponentAdded(object item)
         {
             base.ComponentAdded(item);
-
-            if (item is IPropertyViewer)
-                mPropertyInterface = item as IPropertyViewer;
         }
 
         public override void ComponentRemoved(object item)
         {
            base.ComponentRemoved(item);
-
-            if (item == mPropertyInterface)
-                mPropertyInterface = null;
         }
 
         public override void VisibilityChanged(object item, bool visible)
@@ -84,17 +78,10 @@ namespace Examples.TestToolAndStatusBar
             UpdateMessageText();
         }
 
-        public override void FocusChanged(object item)
-        {
-            base.FocusChanged(item);
-            if (this == item && mPropertyInterface != null)
-                mPropertyInterface.SetObject(this);
-        }
 
         #endregion
 
         #region variables, properties
-        IPropertyViewer mPropertyInterface;
         ToolButton mPush;
         ToolButton mPop;
         bool mAdded = false;

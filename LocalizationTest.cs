@@ -27,43 +27,18 @@ namespace Examples
 
       #region Component - Interaction
 
-      List<IPropertyViewer> mProperty = new List<IPropertyViewer>();
       LocalizationProperties mProperties = new LocalizationProperties();
 
       public override void ComponentAdded(object item)
       {
          base.ComponentAdded(item);
-
-         if (item is IPropertyViewer)
-         {
-            IPropertyViewer property = item as IPropertyViewer;
-
-            mProperty.Add(property);
-            property.PropertyChanged += (e) =>
-            {
-               // if (e.Object == myObject) update...
-            };
-         }
       }
 
       public override void ComponentRemoved(object item)
       {
          base.ComponentRemoved(item);
-
-         if (item is IPropertyViewer)
-         {
-            IPropertyViewer property = item as IPropertyViewer;
-            mProperty.Remove(property);
-         }
       }
 
-      public override void FocusChanged(object item)
-      {
-         base.FocusChanged(item);
-         if (item == this)
-            foreach (IPropertyViewer p in mProperty)
-               p.SetObject(mProperties);
-      }
       #endregion
    }
 
