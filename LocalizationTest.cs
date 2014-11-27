@@ -32,6 +32,8 @@ namespace Examples
 
       public override void ComponentAdded(object item)
       {
+         base.ComponentAdded(item);
+
          if (item is IPropertyViewer)
          {
             IPropertyViewer property = item as IPropertyViewer;
@@ -46,6 +48,8 @@ namespace Examples
 
       public override void ComponentRemoved(object item)
       {
+         base.ComponentRemoved(item);
+
          if (item is IPropertyViewer)
          {
             IPropertyViewer property = item as IPropertyViewer;
@@ -55,6 +59,7 @@ namespace Examples
 
       public override void FocusChanged(object item)
       {
+         base.FocusChanged(item);
          if (item == this)
             foreach (IPropertyViewer p in mProperty)
                p.SetObject(mProperties);
