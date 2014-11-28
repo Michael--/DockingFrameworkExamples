@@ -27,7 +27,7 @@ namespace Examples
 
       #region Component - Interaction
 
-      LocalizationProperties mProperties = new LocalizationProperties();
+      //LocalizationProperties mProperties = new LocalizationProperties();
 
       public override void ComponentAdded(object item)
       {
