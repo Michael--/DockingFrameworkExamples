@@ -119,19 +119,14 @@
     <EmbeddedResource Include="Resources\TestToolBarStatusBar-16.png" />
     <EmbeddedResource Include="Resources\VirtualListTest-16.png" />
     <EmbeddedResource Include="Resources\WorkerThread-16.png" />
-    <EmbeddedResource Include="Python\test2.py" />
-    <EmbeddedResource Include="Python\test1.py" />
-    <EmbeddedResource Include="Python\test3.py" />
-    <EmbeddedResource Include="Python\test4.py" />
-    <EmbeddedResource Include="Python\test5.py" />
-    <EmbeddedResource Include="Python\test6.py" />
+    <EmbeddedResource Include="Scripts\test2.py" />
+    <EmbeddedResource Include="Scripts\test1.py" />
+    <EmbeddedResource Include="Scripts\test3.py" />
+    <EmbeddedResource Include="Scripts\test4.py" />
+    <EmbeddedResource Include="Scripts\test5.py" />
+    <EmbeddedResource Include="Scripts\test6.py" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="Python\dummy.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DockingFramework\Docking\Docking.csproj">
       <Project>{8DDC0184-EBA8-4264-993D-E47173F12814}</Project>
