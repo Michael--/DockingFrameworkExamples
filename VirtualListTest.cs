@@ -35,7 +35,6 @@ namespace Examples.VirtualList
             base.Loaded(item);
 
             virtuallistview1.ComponentManager = this.ComponentManager;
-            virtuallistview1.LoadPersistence(item);
 
             // callback requesting data to display
             virtuallistview1.GetContentDelegate = GetContent;
@@ -53,13 +52,6 @@ namespace Examples.VirtualList
             // set content size
             virtuallistview1.RowCount = 42000;
             virtuallistview1.TriggerRepaint();
-        }
-
-        public override void Save()
-        {
-            base.Save();
-
-            virtuallistview1.SavePersistence(DockItem);
         }
     }
 
