@@ -155,7 +155,7 @@ namespace Examples
         public override String MenuPath { get { return @"View\Examples\Levenshtein"; } }
         public override String Comment { get { return "Levenshtein example"; } }
         public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
-        public override string LicenseGroup { get { return "default"; } }
+        public override string LicenseGroup { get { return "examples"; } }
     }
     
     #endregion

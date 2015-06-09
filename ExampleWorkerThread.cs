@@ -277,6 +277,7 @@ namespace Examples
       public override String Comment { get { return "Example for using worker threads"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.WorkerThread-16.png"); } }
+      public override string LicenseGroup { get { return "examples"; } }
    }
 
    #endregion

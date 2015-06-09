@@ -24,7 +24,8 @@ namespace Examples
 		public override String Comment { get { return "minimal dockable component example"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
-    }
+      public override string LicenseGroup { get { return "examples"; } }
+   }
 
 #endregion
 

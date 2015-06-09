@@ -65,6 +65,7 @@ public class VirtualListTestFactory : ComponentFactory
     public override String Comment { get { return "Test widget for testing virtual list view"; } }
     public override Mode Options { get { return Mode.MultiInstance; } }
     public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.VirtualListTest-16.png"); } }
+    public override string LicenseGroup { get { return "examples"; } }
 }
 
 #endregion
