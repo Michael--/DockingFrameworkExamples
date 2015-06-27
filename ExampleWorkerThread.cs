@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace Examples
+namespace DockingExamples
 {
    [System.ComponentModel.ToolboxItem(false)]
    public partial class ExampleWorkerThread : Docking.Components.Component
@@ -276,7 +276,7 @@ namespace Examples
       public override String MenuPath { get { return @"View\Examples\WorkerThread"; } }
       public override String Comment { get { return "Example for using worker threads"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
-      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.WorkerThread-16.png"); } }
+      public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("WorkerThread-16.png"); } }
       public override string LicenseGroup { get { return "examples"; } }
    }
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Docking;
 using System.Xml.Serialization;
 
-namespace Examples.VirtualList
+namespace DockingExamples
 {
     [System.ComponentModel.ToolboxItem(false)]
     public partial class VirtualListTest : Component
@@ -64,7 +64,7 @@ public class VirtualListTestFactory : ComponentFactory
     public override String MenuPath { get { return @"View\Examples\Virtual List Test"; } }
     public override String Comment { get { return "Test widget for testing virtual list view"; } }
     public override Mode Options { get { return Mode.MultiInstance; } }
-    public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.VirtualListTest-16.png"); } }
+    public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("VirtualListTest-16.png"); } }
     public override string LicenseGroup { get { return "examples"; } }
 }
 

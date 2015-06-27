@@ -7,7 +7,7 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Examples
+namespace DockingExamples
 {
    [System.ComponentModel.ToolboxItem(false)]
    public partial class TestAsyncAwait : Component
@@ -77,7 +77,7 @@ namespace Examples
       public override String MenuPath { get { return @"View\Examples\Test async/await"; } }
       public override String Comment { get { return "Test the C# 5.0 feature async/await"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
-      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
+      public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("Example-16.png"); } }
       public override string LicenseGroup { get { return "examples"; } }
    }
 

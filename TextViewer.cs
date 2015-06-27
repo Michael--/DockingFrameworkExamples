@@ -6,7 +6,7 @@ using Docking;
 using Gtk;
 using Docking.Tools;
 
-namespace Examples
+namespace DockingExamples
 {
     [System.ComponentModel.ToolboxItem(false)]
     public partial class TextViewer : Component, IFileOpen
@@ -60,7 +60,7 @@ namespace Examples
         public override Type TypeOfInstance { get { return typeof(TextViewer); } }
         public override String MenuPath { get { return @"View\Examples\TextViewer"; } }
         public override String Comment { get { return "Load *.txt files"; } }
-        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
+        public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("Example-16.png"); } }
         public override string LicenseGroup { get { return "examples"; } }
     }
 

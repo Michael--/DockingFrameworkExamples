@@ -2,7 +2,7 @@ using System;
 using Docking.Components;
 using System.Diagnostics;
 
-namespace Examples
+namespace DockingExamples
 {
    [System.ComponentModel.ToolboxItem(false)]
    public partial class FlorenceDockingDemo : Component
@@ -13,7 +13,8 @@ namespace Examples
          this.Name = demo.Name;
          this.plotwidget1.InteractivePlotSurface2D = new Florence.InteractivePlotSurface2D();
          DemoLib.PlotSurface2DDemo.IDemo sample = (DemoLib.PlotSurface2DDemo.IDemo)Activator.CreateInstance(demo);
-         sample.CreatePlot(this.plotwidget1.InteractivePlotSurface2D);      }
+         sample.CreatePlot(this.plotwidget1.InteractivePlotSurface2D);
+      }
    }
    #region Starter / Entry Point
 
@@ -23,7 +24,7 @@ namespace Examples
        public override Type TypeOfInstance { get { return theInstance; } }
        public override String MenuPath { get { return @"View\Examples\Florence\" + theInstance.Name; } }
        public override String Comment { get { return theInstance.Name + " example"; } }
-       public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
+       public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("Example-16.png"); } }
        public override string LicenseGroup { get { return "examples"; } }
    }
 

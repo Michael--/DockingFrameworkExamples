@@ -4,7 +4,7 @@ using Docking;
 using Gtk;
 using System.Collections.Generic;
 
-namespace Examples.TestToolAndStatusBar
+namespace DockingExamples
 {
     [System.ComponentModel.ToolboxItem(false)]
     public partial class TestToolBarStatusBar : Component
@@ -97,7 +97,7 @@ namespace Examples.TestToolAndStatusBar
         public override Type TypeOfInstance { get { return typeof(TestToolBarStatusBar); } }
         public override String MenuPath { get { return @"View\Examples\Test Toolbar and Statusbar"; } }
         public override String Comment { get { return "Example using toolbar and status bar"; } }
-        public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.TestToolBarStatusBar-16.png"); } }
+        public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("TestToolBarStatusBar-16.png"); } }
         public override string LicenseGroup { get { return "examples"; } }
     }
 

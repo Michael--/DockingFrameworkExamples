@@ -2,7 +2,7 @@ using System;
 using Docking;
 using Docking.Components;
 
-namespace Examples
+namespace DockingExamples
 {
 	[System.ComponentModel.ToolboxItem(false)]
 	public partial class ExampleHelloWorld : Component
@@ -23,7 +23,7 @@ namespace Examples
       public override String MenuPath { get { return @"View\Examples\Hello World"; } }
 		public override String Comment { get { return "minimal dockable component example"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
-      public override Gdk.Pixbuf Icon { get { return Gdk.Pixbuf.LoadFromResource("Examples.Resources.Example-16.png"); } }
+      public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("Example-16.png"); } }
       public override string LicenseGroup { get { return "examples"; } }
    }
 

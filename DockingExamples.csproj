@@ -8,7 +8,7 @@
     <ProjectGuid>{D3728416-6C94-4A4B-A121-E0B822FE3F26}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Examples</RootNamespace>
-    <AssemblyName>Examples</AssemblyName>
+    <AssemblyName>DockingExamples</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -73,27 +73,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="gtk-gui\Examples.LocalizationTest.cs" />
+    <Compile Include="gtk-gui\DockingExamples.LocalizationTest.cs" />
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="TestToolBarStatusBar.cs" />
-    <Compile Include="gtk-gui\Examples.TestToolAndStatusBar.TestToolBarStatusBar.cs" />
+    <Compile Include="gtk-gui\DockingExamples.TestToolAndStatusBar.TestToolBarStatusBar.cs" />
+    <Compile Include="ResourceLoader_Examples.cs" />
     <Compile Include="VirtualListTest.cs" />
-    <Compile Include="gtk-gui\Examples.VirtualList.VirtualListTest.cs" />
+    <Compile Include="gtk-gui\DockingExamples.VirtualList.VirtualListTest.cs" />
     <Compile Include="ExampleHelloWorld.cs" />
-    <Compile Include="gtk-gui\Examples.ExampleHelloWorld.cs" />
+    <Compile Include="gtk-gui\DockingExamples.ExampleHelloWorld.cs" />
     <Compile Include="ExampleWorkerThread.cs" />
-    <Compile Include="gtk-gui\Examples.ExampleWorkerThread.cs" />
+    <Compile Include="gtk-gui\DockingExamples.ExampleWorkerThread.cs" />
     <Compile Include="Levenshtein.cs" />
-    <Compile Include="gtk-gui\Examples.Levenshtein.cs" />
-    <Compile Include="gtk-gui\Examples.PythonExample.cs" />
+    <Compile Include="gtk-gui\DockingExamples.Levenshtein.cs" />
+    <Compile Include="gtk-gui\DockingExamples.PythonExample.cs" />
     <Compile Include="Python\Python.cs" />
     <Compile Include="TextViewer.cs" />
-    <Compile Include="gtk-gui\Examples.TextViewer.cs" />
+    <Compile Include="gtk-gui\DockingExamples.TextViewer.cs" />
     <Compile Include="FlorenceDockingDemo.cs" />
-    <Compile Include="gtk-gui\Examples.FlorenceDockingDemo.cs" />
+    <Compile Include="gtk-gui\DockingExamples.FlorenceDockingDemo.cs" />
     <Compile Include="LocalizationTest.cs" />
     <Compile Include="TestAsyncAwait.cs" />
-    <Compile Include="gtk-gui\Examples.TestAsyncAwait.cs" />
+    <Compile Include="gtk-gui\DockingExamples.TestAsyncAwait.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
