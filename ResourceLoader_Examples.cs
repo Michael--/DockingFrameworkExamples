@@ -5,7 +5,7 @@ namespace DockingExamples
    // a copy of class ResourceLoader_Docking - see there! It is necessary to have a copy in each assembly SEPARATELY!
    public class ResourceLoader_DockingExamples
    {
-      private static string RESOURCE_PREFIX = "DockingExamples.Resources."; // this is added here explicitly to PREVENT that resources from other assemblies get loaded! (that would lead to random crashes...)
+      private static string RESOURCE_PREFIX = "Examples.Resources."; // this is added here explicitly to PREVENT that resources from other assemblies get loaded! (that would lead to random crashes...)
 
       // a pink 16x16 dummy placeholder PNG for resources that cannot be retrieved
       private static byte[] DUMMY_PLACEHOLDER_IMAGE = System.Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAK3RFWHRDcmVhdGlvbiBUaW1lAFNhIDI3IEp1biAyMDE1IDE0OjQ5OjM2ICswMTAwswJnxwAAAAd0SU1FB98GGww0ExFqaikAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD/AP82/WKvAAAADklEQVR42mP4/5+BFAQA/U4f4d7IdZcAAAAASUVORK5CYII=");
