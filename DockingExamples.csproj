@@ -76,10 +76,8 @@
     <Compile Include="gtk-gui\DockingExamples.LocalizationTest.cs" />
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="TestToolBarStatusBar.cs" />
-    <Compile Include="gtk-gui\DockingExamples.TestToolAndStatusBar.TestToolBarStatusBar.cs" />
     <Compile Include="ResourceLoader_Examples.cs" />
     <Compile Include="VirtualListTest.cs" />
-    <Compile Include="gtk-gui\DockingExamples.VirtualList.VirtualListTest.cs" />
     <Compile Include="ExampleHelloWorld.cs" />
     <Compile Include="gtk-gui\DockingExamples.ExampleHelloWorld.cs" />
     <Compile Include="ExampleWorkerThread.cs" />
@@ -95,6 +93,8 @@
     <Compile Include="LocalizationTest.cs" />
     <Compile Include="TestAsyncAwait.cs" />
     <Compile Include="gtk-gui\DockingExamples.TestAsyncAwait.cs" />
+    <Compile Include="gtk-gui\DockingExamples.TestToolBarStatusBar.cs" />
+    <Compile Include="gtk-gui\DockingExamples.VirtualListTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
