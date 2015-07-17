@@ -5,9 +5,7 @@
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="../../DockingFramework/Docking/bin/x86/Debug/Docking.dll" />
-    <widget-library name="../../Florence/src/Florence.GtkSharp/bin/x86/Debug/Florence.GtkSharp.dll" />
-    <widget-library name="../bin/x86/Debug/DockingExamples.dll" internal="true" />
+    <widget-library name="../../DockingFramework/Docking/Framework/Widgets/bin/x86/Release/DummyWidgetPlaceholdersForStetic.dll" />
   </import>
   <widget class="Gtk.Bin" id="DockingExamples.ExampleHelloWorld" design-size="300 300">
     <property name="MemberName">HelloWorld</property>
