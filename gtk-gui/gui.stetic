@@ -5,7 +5,7 @@
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="../../DockingFramework/Docking/Framework/Widgets/bin/x86/Release/DummyWidgetPlaceholdersForStetic.dll" />
+    <widget-library name="../../DockingFramework/Docking/Framework/Widgets/bin/x86/Release/DockingDummyWidgetPlaceholders.dll" />
   </import>
   <widget class="Gtk.Bin" id="DockingExamples.ExampleHelloWorld" design-size="300 300">
     <property name="MemberName">HelloWorld</property>
