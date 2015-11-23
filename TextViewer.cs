@@ -13,23 +13,19 @@ namespace DockingExamples
     {       
         #region IFileOpen
 
-        static FileFilterExt sFileFilter_TXT = new FileFilterExt("*.txt", "Text File");
-
         List<FileFilterExt> IFileOpen.SupportedFileTypes()
         {
-           return new List<FileFilterExt>() { sFileFilter_TXT };
+           return new List<FileFilterExt>() { ExampleTextViewerFactory.sFileFilter_TXT };
         }
 
-        String IFileOpen.TryOpenFile(String filename)
+        bool IFileOpen.CanOpenFile(String filename)
         {
-            if(!sFileFilter_TXT.Matches(filename) || !File.Exists(filename))
-                return null;
-            return sFileFilter_TXT.Name;
+           return (ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) || !File.Exists(filename));
         }
         
         bool IFileOpen.OpenFile(String filename)
         {
-            if(!sFileFilter_TXT.Matches(filename) || !File.Exists(filename))
+           if (!ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) || !File.Exists(filename))
                 return false;
 
             using (System.IO.StreamReader reader = new System.IO.StreamReader(filename))
@@ -57,9 +53,14 @@ namespace DockingExamples
 
     public class ExampleTextViewerFactory : ComponentFactory
     {
+        static public FileFilterExt sFileFilter_TXT = new FileFilterExt("*.txt", "Text File");
+
         public override Type TypeOfInstance { get { return typeof(TextViewer); } }
         public override String MenuPath { get { return @"View\Examples\TextViewer"; } }
         public override String Comment { get { return "Load *.txt files"; } }
+
+        public override List<FileFilterExt> SupportedFileTypes { get { return new List<FileFilterExt>() { sFileFilter_TXT }; } }
+
         public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("Example-16.png"); } }
         public override string LicenseGroup { get { return "examples"; } }
     }
