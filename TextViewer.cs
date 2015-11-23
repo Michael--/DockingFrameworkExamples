@@ -20,7 +20,7 @@ namespace DockingExamples
 
         bool IFileOpen.CanOpenFile(String filename)
         {
-           return (ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) || !File.Exists(filename));
+           return (ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) && File.Exists(filename));
         }
         
         bool IFileOpen.OpenFile(String filename)
