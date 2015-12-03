@@ -20,13 +20,13 @@ namespace DockingExamples
 
         bool IFileOpen.CanOpenFile(String filename)
         {
-           return (ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) && File.Exists(filename));
+           return ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) && File.Exists(filename);
         }
         
         bool IFileOpen.OpenFile(String filename)
         {
-           if (!ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) || !File.Exists(filename))
-                return false;
+           if(!(this as IFileOpen).CanOpenFile(filename))
+              return false;
 
             using (System.IO.StreamReader reader = new System.IO.StreamReader(filename))
             {
