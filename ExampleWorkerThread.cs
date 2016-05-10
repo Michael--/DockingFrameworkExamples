@@ -46,8 +46,6 @@ namespace DockingExamples
 
       void StartNewThread()
       {
-         System.Threading.Thread.CurrentThread.Name = "ExampleWorkerThread";
-
          if (ComponentManager.PowerDown || m_Destroyed)
             return;
 
