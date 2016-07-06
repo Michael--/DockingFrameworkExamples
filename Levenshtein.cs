@@ -40,9 +40,9 @@ namespace DockingExamples
             labelBestMatch.LabelProp = "- ";
         }
 
-        public override void Loaded(DockItem item)
+        public override void Loaded()
         {
-            base.Loaded(item);
+            base.Loaded();
 
             // attach python
             m_ScriptingInstance = new LevenshteinScripting(this);

@@ -30,9 +30,9 @@ namespace DockingExamples
             return "?";
         }
 
-        public override void Loaded(DockItem item)
+        public override void Loaded()
         {
-            base.Loaded(item);
+            base.Loaded();
 
             virtuallistview1.ComponentManager = this.ComponentManager;
 
