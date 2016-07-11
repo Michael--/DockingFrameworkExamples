@@ -192,11 +192,10 @@ namespace DockingExamples
          }
       }
 
-      public override void Save()
+      public override void Closed()
       {
-         base.Save();
-
-         RequestStop(); // TODO this is the wrong place! RequestStop() should be called when the component is about to be CLOSED, not when SAVED!
+         base.Closed();
+         RequestStop();
       }
 
       protected void OnButton1Clicked(object sender, EventArgs e)
