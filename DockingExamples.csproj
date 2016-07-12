@@ -96,6 +96,8 @@
     <Compile Include="gtk-gui\DockingExamples.VirtualListTest.cs" />
     <Compile Include="Clothoides.cs" />
     <Compile Include="gtk-gui\DockingExamples.Clothoides.cs" />
+    <Compile Include="CompassNeedle.cs" />
+    <Compile Include="gtk-gui\DockingExamples.CompassNeedle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
