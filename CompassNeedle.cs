@@ -36,7 +36,23 @@ namespace DockingExamples
       public override void Loaded()
       {
          base.Loaded();
+         SetPropertyObject(m_Properties);
          Timer();
+      }
+
+      public override void PropertyChanged()
+      {
+         base.PropertyChanged();
+         Update();
+      }
+
+      void Update()
+      {
+         m_HeadingSmoother.setIterationRate(m_Properties.IterationRate);
+         m_HeadingSmoother.setDamping(m_Properties.Damping);
+         m_HeadingSmoother.setAcceleration(m_Properties.Acceleration);
+         if (m_Properties.FrameRate > 0)
+            m_FrameDelay = (int)(1000.0 / m_Properties.FrameRate);
       }
 
       #endregion
@@ -44,6 +60,18 @@ namespace DockingExamples
       #region persistency & properties
       class MyProperties
       {
+         public MyProperties()
+         {
+            FrameRate = 30;
+            IterationRate = 25;
+            Acceleration = 0.04;
+            Damping = 0.7;
+         }
+
+         public uint FrameRate { get; set; }
+         public uint IterationRate { get; set; }
+         public double Acceleration { get; set; }
+         public double Damping { get; set; }
       }
 
       void IPersistable.SaveTo(IPersistency persistency)
@@ -56,14 +84,15 @@ namespace DockingExamples
       {
          // string instance = DockItem.Id.ToString();
 
-         //m_Properties = new MyProperties();
+         m_Properties = new MyProperties();
          m_HeadingSmoother = new HeadingSmoother();
+         Update();
       }
 
       #endregion
 
       #region member variables
-      //MyProperties m_Properties;
+      MyProperties m_Properties;
       int m_FrameDelay = 25;
       double m_AngleQuota = 0;
       double m_AngleCurrent = 0;
@@ -228,7 +257,7 @@ namespace DockingExamples
       m_TimeStep = 1000 / rate;
     }
 
-    public void setAcceleration(float acc)
+    public void setAcceleration(double acc)
     {
       m_Acceleration = acc;
     }
