@@ -65,6 +65,7 @@ namespace DockingExamples
          public Color ColorOther { get; set; }
          public Color ColorNodes { get; set; }
          public Color ColorNodeSelected { get; set; }
+         public int LineWidth { get; set; }
       }
 
       void IPersistable.SaveTo(IPersistency persistency)
@@ -82,6 +83,7 @@ namespace DockingExamples
          persistency.SaveSetting(instance, "DrawInformation", m_Properties.DrawInformation);
          persistency.SaveSetting(instance, "DrawWholeInnerCircle", m_Properties.DrawWholeInnerCircle);
          persistency.SaveSetting(instance, "DrawConstructionsPoints", m_Properties.DrawConstructionsPoints);
+         persistency.SaveSetting(instance, "LineWidth", m_Properties.LineWidth);
 
          persistency.SaveSetting(instance, "NodeCount", m_Nodes.Count);
          for (int i = 0; i < m_Nodes.Count; i++)
@@ -109,6 +111,7 @@ namespace DockingExamples
          m_Properties.DrawInformation = persistency.LoadSetting(instance, "DrawInformation", m_Properties.DrawInformation);
          m_Properties.DrawWholeInnerCircle = persistency.LoadSetting(instance, "DrawWholeInnerCircle", m_Properties.DrawWholeInnerCircle);
          m_Properties.DrawConstructionsPoints = persistency.LoadSetting(instance, "DrawConstructionsPoints", m_Properties.DrawConstructionsPoints);
+         m_Properties.LineWidth = persistency.LoadSetting(instance, "LineWidth", 3);
 
          int count = persistency.LoadSetting(instance, "NodeCount", 0);
          for (int i = 0; i < count; i++)
@@ -333,7 +336,7 @@ namespace DockingExamples
 
             // whole center circle
             if (m_Properties.DrawWholeInnerCircle)
-               Drawing.Ellipse(context, M, R, m_Properties.ColorOther, false, 1);
+               Drawing.Ellipse(context, M, R, m_Properties.ColorOther, false, m_Properties.LineWidth);
 
             PointF UE1 = M.OffsetPolar(R, a1 + (Math.PI / 2 + tau) * signR);
             PointF UE2 = M.OffsetPolar(R, a2 - (Math.PI / 2 + tau) * signR);
@@ -348,7 +351,7 @@ namespace DockingExamples
             // Draw Arc, inner part of turn
             double angle1 = -Math.PI / 2 + a1 + (Math.PI / 2 + tau) * signR;
             double angle2 = -Math.PI / 2 + a2 - (Math.PI / 2 + tau) * signR;
-            Drawing.Arc(context, M, R, angle1, angle2, signR >= 0, m_Properties.ColorCircle, false, 1);
+            Drawing.Arc(context, M, R, angle1, angle2, signR >= 0, m_Properties.ColorCircle, false, m_Properties.LineWidth);
 
             double L = tau * 2 * R;
             double A2 = L * R;
@@ -416,8 +419,8 @@ namespace DockingExamples
                      clo2.Add(pt);
                   }
                }
-               Drawing.Polyline(context, clo1, m_Properties.ColorClothoide, 1);
-               Drawing.Polyline(context, clo2, m_Properties.ColorClothoide, 1);
+               Drawing.Polyline(context, clo1, m_Properties.ColorClothoide, m_Properties.LineWidth);
+               Drawing.Polyline(context, clo2, m_Properties.ColorClothoide, m_Properties.LineWidth);
                straights.Add(clo1.LastOrDefault());
                straights.Add(clo2.LastOrDefault());
             }
@@ -426,7 +429,7 @@ namespace DockingExamples
          for (int j = 0; j < straights.Count(); j += 2)
          {
             var line = straights.GetRange(j, 2);
-            Drawing.Polyline(context, line, m_Properties.ColorStraight, 1);
+            Drawing.Polyline(context, line, m_Properties.ColorStraight, m_Properties.LineWidth);
          }
       }
 
@@ -436,7 +439,7 @@ namespace DockingExamples
          foreach (var p in m_Nodes)
             points.Add(p);
 
-         Drawing.Polyline(context, points, m_Properties.ColorLine, 1);
+         Drawing.Polyline(context, points, m_Properties.ColorLine, m_Properties.LineWidth);
       }
 
       void DrawInfos(Cairo.Context context)
