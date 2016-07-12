@@ -8,27 +8,30 @@ namespace DockingExamples
 
 		private global::Gtk.DrawingArea drawingarea1;
 
-		protected virtual void Build ()
+		protected virtual void Build()
 		{
-			global::Stetic.Gui.Initialize (this);
+			global::Stetic.Gui.Initialize(this);
 			// Widget DockingExamples.Clothoides
-			global::Stetic.BinContainer.Attach (this);
+			global::Stetic.BinContainer.Attach(this);
 			this.Name = "DockingExamples.Clothoides";
 			// Container child DockingExamples.Clothoides.Gtk.Container+ContainerChild
-			this.vbox1 = new global::Gtk.VBox ();
+			this.vbox1 = new global::Gtk.VBox();
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.drawingarea1 = new global::Gtk.DrawingArea ();
+			this.drawingarea1 = new global::Gtk.DrawingArea();
+			this.drawingarea1.Events = ((global::Gdk.EventMask)(2326526));
+			this.drawingarea1.ExtensionEvents = ((global::Gdk.ExtensionMode)(1));
 			this.drawingarea1.Name = "drawingarea1";
-			this.vbox1.Add (this.drawingarea1);
-			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.drawingarea1]));
+			this.vbox1.Add(this.drawingarea1);
+			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.drawingarea1]));
 			w1.Position = 0;
-			this.Add (this.vbox1);
-			if ((this.Child != null)) {
-				this.Child.ShowAll ();
+			this.Add(this.vbox1);
+			if ((this.Child != null))
+			{
+				this.Child.ShowAll();
 			}
-			this.Hide ();
+			this.Hide();
 		}
 	}
 }

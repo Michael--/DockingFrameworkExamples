@@ -5,7 +5,9 @@
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="../../DockingFramework/Docking/Framework/Widgets/bin/x86/Debug/DockingDummyWidgetPlaceholders.dll" />
+    <widget-library name="../../DockingFramework/Docking/bin/x86/Debug/Docking.dll" />
+    <widget-library name="../../Florence/src/Florence.GtkSharp/bin/x86/Debug/Florence.GtkSharp.dll" />
+    <widget-library name="../bin/x86/Debug/DockingExamples.dll" internal="true" />
   </import>
   <widget class="Gtk.Bin" id="DockingExamples.ExampleHelloWorld" design-size="300 300">
     <property name="MemberName">HelloWorld</property>
@@ -256,7 +258,9 @@
       <widget class="Docking.Widgets.VirtualListView" id="virtuallistview1">
         <property name="MemberName" />
         <property name="Events">ButtonPressMask</property>
+        <property name="ExtensionEvents">All</property>
         <property name="RowCount">0</property>
+        <property name="FindPossibility">False</property>
       </widget>
     </child>
   </widget>
@@ -582,6 +586,8 @@
         <child>
           <widget class="Gtk.DrawingArea" id="drawingarea1">
             <property name="MemberName" />
+            <property name="Events">ExposureMask, PointerMotionMask, PointerMotionHintMask, ButtonMotionMask, Button1MotionMask, Button2MotionMask, Button3MotionMask, ButtonPressMask, ButtonReleaseMask, KeyPressMask, KeyReleaseMask, EnterNotifyMask, LeaveNotifyMask, FocusChangeMask, PropertyChangeMask, VisibilityNotifyMask, ScrollMask</property>
+            <property name="ExtensionEvents">All</property>
           </widget>
           <packing>
             <property name="Position">0</property>
