@@ -9,8 +9,9 @@ using Gtk;
 namespace DockingExamples
 {
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class Clothoides : Component
+   public partial class Clothoides : Component, IPersistable, ILocalizableComponent
    {
+      #region construction 
       public Clothoides()
       {
          this.Build();
@@ -22,8 +23,106 @@ namespace DockingExamples
 
          drawingarea1.ExposeEvent += new ExposeEventHandler(OnDrawingareaExposeEvent);
       }
+    #endregion
+
+    #region ILocalizableComponent
+
+    string ILocalizableComponent.Name { get { return "Clothoides"; } }
+
+    void ILocalizableComponent.LocalizationChanged(Docking.DockItem item)
+    {
+    }
+    #endregion
+
+
+    #region component interaction
+
+    public override void Loaded()
+      {
+         base.Loaded();
+         SetPropertyObject(m_Properties);
+      }
+
+      public override void PropertyChanged()
+      {
+         base.PropertyChanged();
+         drawingarea1.QueueDraw();
+      }
+
+      #endregion
+
+      #region persistency & properties
+      class MyProperties
+      {
+         public bool DrawConnections { get; set; }
+         public bool DrawInformation { get; set; }
+         public bool DrawConstructionsPoints { get; set; }
+         public bool DrawWholeInnerCircle { get; set; }
+         public Color ColorStraight { get; set; }
+         public Color ColorLine { get; set; }
+         public Color ColorCircle { get; set; }
+         public Color ColorClothoide { get; set; }
+         public Color ColorOther { get; set; }
+         public Color ColorNodes { get; set; }
+         public Color ColorNodeSelected { get; set; }
+      }
+
+      void IPersistable.SaveTo(IPersistency persistency)
+      {
+         string instance = DockItem.Id.ToString();
+
+         persistency.SaveSetting(instance, "ColorStraight", m_Properties.ColorStraight);
+         persistency.SaveSetting(instance, "ColorLine", m_Properties.ColorLine);
+         persistency.SaveSetting(instance, "ColorCircle", m_Properties.ColorCircle);
+         persistency.SaveSetting(instance, "ColorClothoide", m_Properties.ColorClothoide);
+         persistency.SaveSetting(instance, "ColorOther", m_Properties.ColorOther);
+         persistency.SaveSetting(instance, "ColorNodes", m_Properties.ColorNodes);
+         persistency.SaveSetting(instance, "ColorNodeSelected", m_Properties.ColorNodeSelected);
+         persistency.SaveSetting(instance, "DrawConnections", m_Properties.DrawConnections);
+         persistency.SaveSetting(instance, "DrawInformation", m_Properties.DrawInformation);
+         persistency.SaveSetting(instance, "DrawWholeInnerCircle", m_Properties.DrawWholeInnerCircle);
+         persistency.SaveSetting(instance, "DrawConstructionsPoints", m_Properties.DrawConstructionsPoints);
+
+         persistency.SaveSetting(instance, "NodeCount", m_Nodes.Count);
+         for (int i = 0; i < m_Nodes.Count; i++)
+         {
+            var n = m_Nodes.ElementAt(i);
+            persistency.SaveSetting(instance, "NodeX" + i.ToString(), n.X);
+            persistency.SaveSetting(instance, "NodeY" + i.ToString(), n.Y);
+         }
+      }
+
+
+      void IPersistable.LoadFrom(IPersistency persistency)
+      {
+         string instance = DockItem.Id.ToString();
+
+         m_Properties = new MyProperties();
+         m_Properties.ColorStraight = persistency.LoadSetting(instance, "ColorStraight", Color.Brown);
+         m_Properties.ColorLine = persistency.LoadSetting(instance, "ColorLine", Color.Beige);
+         m_Properties.ColorCircle = persistency.LoadSetting(instance, "ColorCircle", Color.Red);
+         m_Properties.ColorClothoide = persistency.LoadSetting(instance, "ColorClothoide", Color.Green);
+         m_Properties.ColorOther = persistency.LoadSetting(instance, "ColorOther", Color.Brown);
+         m_Properties.ColorNodes = persistency.LoadSetting(instance, "ColorNodes", Color.Blue);
+         m_Properties.ColorNodeSelected = persistency.LoadSetting(instance, "ColorNodeSelected", Color.YellowGreen);
+         m_Properties.DrawConnections = persistency.LoadSetting(instance, "DrawConnections", m_Properties.DrawConnections);
+         m_Properties.DrawInformation = persistency.LoadSetting(instance, "DrawInformation", m_Properties.DrawInformation);
+         m_Properties.DrawWholeInnerCircle = persistency.LoadSetting(instance, "DrawWholeInnerCircle", m_Properties.DrawWholeInnerCircle);
+         m_Properties.DrawConstructionsPoints = persistency.LoadSetting(instance, "DrawConstructionsPoints", m_Properties.DrawConstructionsPoints);
+
+         int count = persistency.LoadSetting(instance, "NodeCount", 0);
+         for (int i = 0; i < count; i++)
+         {
+            var X = persistency.LoadSetting(instance, "NodeX" + i.ToString(), 0.0);
+            var Y = persistency.LoadSetting(instance, "NodeY" + i.ToString(), 0.0);
+            m_Nodes.Add(new PointF((float)X, (float)Y));
+         }
+      }
+
+      #endregion
 
       #region member variables
+      MyProperties m_Properties;
       List<PointF> m_Nodes = new List<PointF>();
       const int NodeSize = 15;
 
@@ -31,6 +130,7 @@ namespace DockingExamples
       int m_HoveredNode = -1;
       PointF m_Moved = PointF.Empty; // helper show us node has been moved by mouse
       #endregion
+
 
       #region mouse interaction
 
@@ -82,8 +182,19 @@ namespace DockingExamples
       {
          if (m_SelectedNode >= 0)
          {
-            if (m_Moved != m_Nodes.ElementAt(m_SelectedNode))
+            var n = m_Nodes.ElementAt(m_SelectedNode);
+            if (m_Moved != n)
                ComponentManager.MessageWriteLine("Node:{0} moved", m_SelectedNode);
+            int width, height;
+            GdkWindow.GetSize(out width, out height);
+            if (n.X < 0 || n.Y < 0 || n.X > width || n.Y > height)
+            {
+               ComponentManager.MessageWriteLine("Node:{0} removed", m_SelectedNode);
+               lock (m_Nodes)
+                  m_Nodes.RemoveAt(m_SelectedNode);
+               m_HoveredNode = -1;
+               drawingarea1.QueueDraw();
+            }
          }
          m_SelectedNode = -1;
       }
@@ -113,7 +224,6 @@ namespace DockingExamples
 
       #endregion
 
-
       #region drawings
 
       void OnDrawingareaExposeEvent(object o, ExposeEventArgs args)
@@ -123,6 +233,26 @@ namespace DockingExamples
          int width, height;
          win.GetSize(out width, out height);
          Gdk.Rectangle exposeRect = expose.Area;
+
+
+         if (m_Nodes.Count == 0)
+         {
+            var layout = new Pango.Layout(PangoContext)
+            {
+               FontDescription = Pango.FontDescription.FromString("Tahoma 12")
+            };
+            var gc = new Gdk.GC(win)
+            {
+               RgbFgColor = Color.Blue.ToGdk(),
+            };
+            var text = "Add some nodes by clicking into window.\n" +
+               "Move nodes with the mouse.\n" +
+               "Remove nodes by moving out of inner area";
+            layout.SetText(text);
+            Drawing.DrawLayout(win, gc, layout, width / 2, height / 2, Drawing.Origin.Center, Drawing.Origin.Center);
+
+         }
+
          lock (m_Nodes)
          {
             using (var context = Gdk.CairoHelper.Create(win))
@@ -132,10 +262,12 @@ namespace DockingExamples
                straights.Add(m_Nodes.FirstOrDefault());
 
                // Draw connection
-               DrawConnections(context);
+               if (m_Properties.DrawConnections)
+                  DrawConnections(context);
 
                // Draw text at connections
-               DrawInfos(context);
+               if (m_Properties.DrawInformation)
+                  DrawInfos(context);
 
                // Calculate & draw clothoides
                CalculateAndDrawClothoides(context, straights);
@@ -165,9 +297,14 @@ namespace DockingExamples
             double len2 = Coord.Length(center, right) / 4;
             double len = Math.Min(len1, len2);
             PointF k1 = center.OffsetPolar(len, a1);
-            //PointF k2 = center.OffsetPolar (len, a2);
-            //Drawing.MarkPoint (context, k1);
-            //Drawing.MarkPoint (context, k2)
+            PointF k2 = center.OffsetPolar (len, a2);
+
+            // clothoide start from straight
+            if (m_Properties.DrawConstructionsPoints)
+            {
+               Drawing.Ellipse(context, k1, 3, m_Properties.ColorOther, true, 1);
+               Drawing.Ellipse(context, k2, 3, m_Properties.ColorOther, true, 1);
+            }
 
             // calculate circle touch booth points k1, k2 / center between lines
             double YM = len * Math.Tan(adiff / 2);
@@ -176,7 +313,10 @@ namespace DockingExamples
             double baseAngle = a1 - Math.PI / 2 * signR;
             PointF M = k1.OffsetPolar(YM, baseAngle);
             // Drawing.Ellipse (context, M, YM);
-            //                  Drawing.Ellipse(context, M, 3, Color.Brown, true, 1);
+
+            // Circle center
+            if (m_Properties.DrawConstructionsPoints)
+               Drawing.Ellipse(context, M, 3, m_Properties.ColorOther, true, 1);
 
             // define and calculate clothoide
             double tauMax = (Math.PI - Math.Abs(adiff)) / 2;
@@ -191,23 +331,27 @@ namespace DockingExamples
             }
             while (Math.Abs(tau) > tauMax);
 
-            //                  Drawing.Ellipse(context, M, R, Color.Brown, false, 1);
+            // whole center circle
+            if (m_Properties.DrawWholeInnerCircle)
+               Drawing.Ellipse(context, M, R, m_Properties.ColorOther, false, 1);
 
             PointF UE1 = M.OffsetPolar(R, a1 + (Math.PI / 2 + tau) * signR);
             PointF UE2 = M.OffsetPolar(R, a2 - (Math.PI / 2 + tau) * signR);
 
-            //                  Drawing.Ellipse(context, UE1, 3, Color.Brown, true, 1);
-            //                  Drawing.Ellipse(context, UE2, 3, Color.Brown, true, 1);
+            // clothoides end to circle
+            if (m_Properties.DrawConstructionsPoints)
+            {
+               Drawing.Ellipse(context, UE1, 3, m_Properties.ColorOther, true, 1);
+               Drawing.Ellipse(context, UE2, 3, m_Properties.ColorOther, true, 1);
+            }
 
-            // Draw Arc
-            Drawing.Arc(context, M, R, -Math.PI / 2 + a1 + (Math.PI / 2 + tau) * signR, -Math.PI / 2 + a2 - (Math.PI / 2 + tau) * signR, signR >= 0, Color.Brown, false, 1);
+            // Draw Arc, inner part of turn
+            double angle1 = -Math.PI / 2 + a1 + (Math.PI / 2 + tau) * signR;
+            double angle2 = -Math.PI / 2 + a2 - (Math.PI / 2 + tau) * signR;
+            Drawing.Arc(context, M, R, angle1, angle2, signR >= 0, m_Properties.ColorCircle, false, 1);
 
             double L = tau * 2 * R;
             double A2 = L * R;
-
-            //var dbg = string.Format("A={0:F1} L={1:F1} R={2:F1} Tau={3:f2} L/A={4:f4}",
-            //Math.Sqrt(A2), L, R, tau, L / Math.Sqrt(A2));
-            //Drawing.DrawText(context, (int)center.X, (int)center.Y, Math.PI / 2, dbg);
 
             // draw clothoides
             {
@@ -264,18 +408,16 @@ namespace DockingExamples
                      double yr = Y * Math.Cos(ax1) + xx * Math.Sin(ax1);
                      PointF pt = UE1.Offset(xr, yr);
                      clo1.Add(pt);
-                     // Drawing.Ellipse(context, pt, 2, Color.Brown, true, 1);
                   }
                   {
                      double xr = xx * Math.Cos(ax2) - Y * Math.Sin(ax2);
                      double yr = Y * Math.Cos(ax2) + xx * Math.Sin(ax2);
                      PointF pt = UE2.Offset(xr, -yr);
                      clo2.Add(pt);
-                     // Drawing.Ellipse(context, pt, 2, Color.Brown, true, 1);
                   }
                }
-               Drawing.Polyline(context, clo1, Color.Brown, 1);
-               Drawing.Polyline(context, clo2, Color.Brown, 1);
+               Drawing.Polyline(context, clo1, m_Properties.ColorClothoide, 1);
+               Drawing.Polyline(context, clo2, m_Properties.ColorClothoide, 1);
                straights.Add(clo1.LastOrDefault());
                straights.Add(clo2.LastOrDefault());
             }
@@ -284,7 +426,7 @@ namespace DockingExamples
          for (int j = 0; j < straights.Count(); j += 2)
          {
             var line = straights.GetRange(j, 2);
-            Drawing.Polyline(context, line, Color.Brown, 1);
+            Drawing.Polyline(context, line, m_Properties.ColorStraight, 1);
          }
       }
 
@@ -294,7 +436,7 @@ namespace DockingExamples
          foreach (var p in m_Nodes)
             points.Add(p);
 
-         Drawing.Polyline(context, points, Color.Red, 1);
+         Drawing.Polyline(context, points, m_Properties.ColorLine, 1);
       }
 
       void DrawInfos(Cairo.Context context)
@@ -311,7 +453,7 @@ namespace DockingExamples
             double angle = Coord.AngleRad(a, b);
             double len = Coord.Length(a, b);
             string text = string.Format("{0:F1} {1:F1}°", len, Coord.Rad2Degree(angle));
-            Drawing.DrawText(context, (int)c.X - 10000, (int)c.Y, angle, text);
+            Drawing.DrawText(context, (int)c.X, (int)c.Y, angle, text);
          }
          context.Restore();
       }
@@ -325,12 +467,11 @@ namespace DockingExamples
          var gc = new Gdk.GC(win)
          {
             RgbFgColor = Color.Yellow.ToGdk(),
-            RgbBgColor = Color.Red.ToGdk()
          };
          for (int i = 0; i < m_Nodes.Count; i++)
          {
             var a = m_Nodes.ElementAt(i);
-            DrawNode(context, a, Color.Blue);
+            DrawNode(context, a, m_Properties.ColorNodes);
             layout.SetText(i.ToString());
             Drawing.DrawLayout(win, gc, layout, a.X, a.Y, Drawing.Origin.Center, Drawing.Origin.Center);
          }
@@ -338,8 +479,7 @@ namespace DockingExamples
          if (m_HoveredNode >= 0)
          {
             var a = m_Nodes.ElementAt(m_HoveredNode);
-            gc.RgbBgColor = Color.Green.ToGdk();
-            DrawNode(context, a, Color.YellowGreen);
+            DrawNode(context, a, m_Properties.ColorNodeSelected);
             layout.SetText(m_HoveredNode.ToString());
             Drawing.DrawLayout(win, gc, layout, a.X, a.Y, Drawing.Origin.Center, Drawing.Origin.Center);
          }
@@ -377,7 +517,6 @@ namespace DockingExamples
             context.LineTo(points.ElementAt(i).X, points.ElementAt(i).Y);
          }
          context.Stroke();
-
          context.Restore();
       }
 
