@@ -68,9 +68,25 @@ namespace DockingExamples
             Damping = 0.7;
          }
 
+         [System.ComponentModel.Category("CompassNeedle.Behaviour")]
+         [System.ComponentModel.DisplayName("CompassNeedle.FrameRate")]
+         [System.ComponentModel.Description("CompassNeedle.FrameRate-Description")]
          public uint FrameRate { get; set; }
+
+         [System.ComponentModel.Category("CompassNeedle.Behaviour")]
+         [System.ComponentModel.DisplayName("CompassNeedle.IterationRate")]
+         [System.ComponentModel.Description("CompassNeedle.IterationRate-Description")]
          public uint IterationRate { get; set; }
+
+         [System.ComponentModel.Category("CompassNeedle.Behaviour")]
+         [System.ComponentModel.DisplayName("CompassNeedle.Acceleration")]
+         [System.ComponentModel.Description("CompassNeedle.Acceleration-Description")]
          public double Acceleration { get; set; }
+
+
+         [System.ComponentModel.Category("CompassNeedle.Behaviour")]
+         [System.ComponentModel.DisplayName("CompassNeedle.Damping")]
+         [System.ComponentModel.Description("CompassNeedle.Damping-Description")]
          public double Damping { get; set; }
       }
 
@@ -164,7 +180,7 @@ namespace DockingExamples
             {
                RgbFgColor = Color.Blue.ToGdk(),
             };
-            var text = "Click to set quota";
+            var text = "CompassNeedle.ShortHelp".Localized();
             layout.SetText(text);
             Drawing.DrawLayout(win, gc, layout, width / 2, height / 3 * 2, Drawing.Origin.Center, Drawing.Origin.Center);
          }
