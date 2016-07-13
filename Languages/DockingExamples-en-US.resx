@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Examples.Any Content" xml:space="preserve">
+  <data name="DockingExamples.Any Content" xml:space="preserve">
     <value>Any Content</value>
   </data>
-  <data name="Examples.Localization" xml:space="preserve">
+  <data name="DockingExamples.Localization" xml:space="preserve">
     <value>Localization Test</value>
   </data>
-  <data name="Examples.Other Content" xml:space="preserve">
+  <data name="DockingExamples.Other Content" xml:space="preserve">
     <value>Other Content</value>
   </data>
-  <data name="Examples.Reset" xml:space="preserve">
+  <data name="DockingExamples.Reset" xml:space="preserve">
     <value>Click me!</value>
   </data>
   <data name="LocalizationProperties.Test property localization" xml:space="preserve">

@@ -27,17 +27,14 @@ namespace DockingExamples
 
       #region Component - Interaction
 
-      //LocalizationProperties mProperties = new LocalizationProperties();
+      LocalizationProperties mProperties = new LocalizationProperties();
 
-      public override void ComponentAdded(object item)
+      public override void Loaded()
       {
-         base.ComponentAdded(item);
+         base.Loaded();
+         SetPropertyObject(mProperties);
       }
 
-      public override void ComponentRemoved(object item)
-      {
-         base.ComponentRemoved(item);
-      }
 
       #endregion
    }
