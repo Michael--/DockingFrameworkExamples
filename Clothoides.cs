@@ -23,21 +23,20 @@ namespace DockingExamples
 
          drawingarea1.ExposeEvent += new ExposeEventHandler(OnDrawingareaExposeEvent);
       }
-    #endregion
+      #endregion
 
-    #region ILocalizableComponent
+      #region ILocalizableComponent
 
-    string ILocalizableComponent.Name { get { return "Clothoides"; } }
+      string ILocalizableComponent.Name { get { return "Clothoides"; } }
 
-    void ILocalizableComponent.LocalizationChanged(Docking.DockItem item)
-    {
-    }
-    #endregion
+      void ILocalizableComponent.LocalizationChanged(Docking.DockItem item)
+      {
+      }
+      #endregion
 
+      #region component interaction
 
-    #region component interaction
-
-    public override void Loaded()
+      public override void Loaded()
       {
          base.Loaded();
          SetPropertyObject(m_Properties);
@@ -133,7 +132,6 @@ namespace DockingExamples
       int m_HoveredNode = -1;
       PointF m_Moved = PointF.Empty; // helper show us node has been moved by mouse
       #endregion
-
 
       #region mouse interaction
 
@@ -300,7 +298,7 @@ namespace DockingExamples
             double len2 = Coord.Length(center, right) / 4;
             double len = Math.Min(len1, len2);
             PointF k1 = center.OffsetPolar(len, a1);
-            PointF k2 = center.OffsetPolar (len, a2);
+            PointF k2 = center.OffsetPolar(len, a2);
 
             // clothoide start from straight
             if (m_Properties.DrawConstructionsPoints)
@@ -512,7 +510,8 @@ namespace DockingExamples
          context.LineWidth = width;
          context.LineCap = Cairo.LineCap.Round;
          context.LineJoin = Cairo.LineJoin.Round;
-         context.SetSourceColor(color.ToCairo());
+         var c = color.ToCairo();
+         context.SetSourceRGBA(c.R, c.G, c.B, c.A);
 
          context.MoveTo(points.ElementAt(0).X, points.ElementAt(0).Y);
          for (int i = 1; i < points.Count(); i++)
@@ -534,7 +533,8 @@ namespace DockingExamples
             context.LineCap = Cairo.LineCap.Butt;
             context.LineJoin = Cairo.LineJoin.Bevel;
          }
-         context.SetSourceColor(color.ToCairo());
+         var c = color.ToCairo();
+         context.SetSourceRGBA(c.R, c.G, c.B, c.A);
 
          if (clockwise)
             context.Arc(0, 0, r, a1, a2);
@@ -559,7 +559,8 @@ namespace DockingExamples
             context.LineCap = Cairo.LineCap.Butt;
             context.LineJoin = Cairo.LineJoin.Bevel;
          }
-         context.SetSourceColor(color.ToCairo());
+         var c = color.ToCairo();
+         context.SetSourceRGBA(c.R, c.G, c.B, c.A);
 
          context.Arc(0, 0, r, 0, Math.PI * 2);
 
