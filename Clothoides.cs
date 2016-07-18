@@ -11,7 +11,7 @@ namespace DockingExamples
    [System.ComponentModel.ToolboxItem(false)]
    public partial class Clothoides : Component, IPersistable, ILocalizableComponent
    {
-      #region construction 
+   #region construction 
       public Clothoides()
       {
          this.Build();
@@ -21,22 +21,22 @@ namespace DockingExamples
          drawingarea1.ButtonReleaseEvent += drawingarea_ButtonReleaseEvent;
          drawingarea1.MotionNotifyEvent += drawingarea_MotionNotifyEvent;
 
-         drawingarea1.ExposeEvent += new ExposeEventHandler(OnDrawingareaExposeEvent);
+         drawingarea1.ExposeEvent += OnDrawingareaExposeEvent;
       }
-      #endregion
+    #endregion
 
-      #region ILocalizableComponent
+    #region ILocalizableComponent
 
-      string ILocalizableComponent.Name { get { return "Clothoides"; } }
+    string ILocalizableComponent.Name { get { return "Clothoides"; } }
 
-      void ILocalizableComponent.LocalizationChanged(Docking.DockItem item)
-      {
-      }
-      #endregion
+    void ILocalizableComponent.LocalizationChanged(Docking.DockItem item)
+    {
+    }
+    #endregion
 
-      #region component interaction
+    #region component interaction
 
-      public override void Loaded()
+    public override void Loaded()
       {
          base.Loaded();
          SetPropertyObject(m_Properties);
@@ -229,6 +229,9 @@ namespace DockingExamples
 
       void OnDrawingareaExposeEvent(object o, ExposeEventArgs args)
       {
+         if (!this.DockItem.ContentVisible)
+            return;
+         
          Gdk.EventExpose expose = args.Args[0] as Gdk.EventExpose;
          Gdk.Window win = expose.Window;
          int width, height;

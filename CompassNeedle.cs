@@ -20,7 +20,7 @@ namespace DockingExamples
          drawingarea1.ButtonReleaseEvent += drawingarea_ButtonReleaseEvent;
          drawingarea1.MotionNotifyEvent += drawingarea_MotionNotifyEvent;
 
-         drawingarea1.ExposeEvent += new ExposeEventHandler(OnDrawingareaExposeEvent);
+         drawingarea1.ExposeEvent += OnDrawingareaExposeEvent;
       }
 
       #region ILocalizableComponent
@@ -82,7 +82,6 @@ namespace DockingExamples
          [System.ComponentModel.DisplayName("CompassNeedle.Acceleration")]
          [System.ComponentModel.Description("CompassNeedle.Acceleration-Description")]
          public double Acceleration { get; set; }
-
 
          [System.ComponentModel.Category("CompassNeedle.Behaviour")]
          [System.ComponentModel.DisplayName("CompassNeedle.Damping")]
@@ -153,7 +152,9 @@ namespace DockingExamples
             await Task.Delay(m_FrameDelay);
             m_AngleQuota = m_HeadingSmoother.getQuota();
             m_AngleCurrent = m_HeadingSmoother.getValue();
-            drawingarea1.QueueDraw();
+
+            if (this.DockItem.ContentVisible)
+              drawingarea1.QueueDraw();
          }
       }
 
