@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Docking.Components;
 using Docking.Tools;
 using Gtk;
+using System.Threading;
 
 namespace DockingExamples
 {
@@ -33,11 +34,31 @@ namespace DockingExamples
       #endregion
 
       #region component interaction
+
+      public override void Closed()
+      {
+         m_CancelTokenSource.Cancel();
+         base.Closed();
+      }
+
       public override void Loaded()
       {
          base.Loaded();
          SetPropertyObject(m_Properties);
-         Timer();
+
+         Task.Run(async () =>
+         {
+            while (!m_CancelTokenSource.IsCancellationRequested)
+            {
+               await Task.Delay(m_FrameDelay);
+               m_AngleQuota = m_HeadingSmoother.getQuota();
+               m_AngleCurrent = m_HeadingSmoother.getValue();
+
+               if (this.DockItem.ContentVisible)
+                  QueueInvoke.Invoke(delegate { drawingarea1.QueueDraw(); });
+            }
+            m_CancelTokenSource.Cancel();
+         }, m_CancelTokenSource.Token);
       }
 
       public override void PropertyChanged()
@@ -107,6 +128,7 @@ namespace DockingExamples
       #endregion
 
       #region member variables
+      CancellationTokenSource m_CancelTokenSource = new CancellationTokenSource();
       MyProperties m_Properties;
       int m_FrameDelay = 25;
       double m_AngleQuota = 0;
@@ -139,23 +161,6 @@ namespace DockingExamples
          var center = new PointF(width / 2, height / 2);
          var angle = Coord.AngleDegree(center, point);
          m_HeadingSmoother.setQuota(angle);
-      }
-
-      #endregion
-
-      #region Timer
-
-      async void Timer()
-      {
-         while (true)
-         {
-            await Task.Delay(m_FrameDelay);
-            m_AngleQuota = m_HeadingSmoother.getQuota();
-            m_AngleCurrent = m_HeadingSmoother.getValue();
-
-            if (this.DockItem.ContentVisible)
-              drawingarea1.QueueDraw();
-         }
       }
 
       #endregion
