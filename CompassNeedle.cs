@@ -220,7 +220,8 @@ namespace DockingExamples
          context.LineTo(0, -85);
          context.LineTo(-1, 10);
          context.ClosePath();
-         context.SetSourceColor(color.ToCairo());
+         var c = color.ToCairo();
+         context.SetSourceRGBA(c.R, c.G, c.B, c.A);
          context.Stroke();
          context.Restore();
       }
@@ -233,7 +234,8 @@ namespace DockingExamples
          context.LineTo(1, -110);
          context.LineTo(-1, -110);
          context.ClosePath();
-         context.SetSourceColor(color.ToCairo());
+         var c = color.ToCairo();
+         context.SetSourceRGBA(c.R, c.G, c.B, c.A);
          context.Stroke();
          context.Restore();
       }
