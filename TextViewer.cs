@@ -23,7 +23,7 @@ namespace DockingExamples
            return ExampleTextViewerFactory.sFileFilter_TXT.Matches(filename) && File.Exists(filename);
         }
         
-        bool IFileOpen.OpenFile(String filename)
+        bool IFileOpen.OpenFile(String filename, bool syncronous)
         {
            if(!(this as IFileOpen).CanOpenFile(filename))
               return false;
