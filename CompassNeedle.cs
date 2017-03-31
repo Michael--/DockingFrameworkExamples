@@ -140,7 +140,7 @@ namespace DockingExamples
 
       void drawingarea_ButtonPressEvent(object o, ButtonPressEventArgs args)
       {
-         if (args.Event.Button == LEFT_MOUSE_BUTTON)
+         if (args.Event.Button == Mouse.LEFT_MOUSE_BUTTON)
             UpdateQuota(new PointF((float)args.Event.X, (float)args.Event.Y));
       }
 
