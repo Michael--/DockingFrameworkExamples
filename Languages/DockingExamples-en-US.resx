@@ -172,7 +172,7 @@
     <value>Florence</value>
   </data>
   <data name="MENU.Hello World" xml:space="preserve">
-    <value>Hello, World!</value>
+    <value>Hello World</value>
   </data>
   <data name="MENU.Levenshtein" xml:space="preserve">
     <value>Levenshtein</value>

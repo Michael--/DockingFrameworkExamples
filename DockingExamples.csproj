@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D3728416-6C94-4A4B-A121-E0B822FE3F26}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Examples</RootNamespace>
@@ -45,25 +43,25 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+      <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.Posix" />
     <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
+      <Package>glib-sharp-2.0</Package>
     </Reference>
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+      <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
-      <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
@@ -79,10 +77,6 @@
     <Compile Include="TestToolBarStatusBar.cs" />
     <Compile Include="ResourceLoader_Examples.cs" />
     <Compile Include="VirtualListTest.cs" />
-    <Compile Include="ExampleHelloWorld.cs" />
-    <Compile Include="gtk-gui\DockingExamples.ExampleHelloWorld.cs" />
-    <Compile Include="ExampleWorkerThread.cs" />
-    <Compile Include="gtk-gui\DockingExamples.ExampleWorkerThread.cs" />
     <Compile Include="Levenshtein.cs" />
     <Compile Include="gtk-gui\DockingExamples.Levenshtein.cs" />
     <Compile Include="gtk-gui\DockingExamples.PythonExample.cs" />
@@ -100,6 +94,10 @@
     <Compile Include="gtk-gui\DockingExamples.Clothoides.cs" />
     <Compile Include="CompassNeedle.cs" />
     <Compile Include="gtk-gui\DockingExamples.CompassNeedle.cs" />
+    <Compile Include="HelloWorld.cs" />
+    <Compile Include="gtk-gui\DockingExamples.HelloWorld.cs" />
+    <Compile Include="WorkerThreadDemo.cs" />
+    <Compile Include="gtk-gui\DockingExamples.WorkerThreadDemo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -154,11 +152,11 @@
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
-        <GtkDesignInfo generateGettext="False" />
         <Policies>
           <TextStylePolicy TabWidth="3" IndentWidth="2" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" />
-          <CSharpFormattingPolicy IndentSwitchSection="True" NewLinesForBracesInProperties="True" NewLinesForBracesInAccessors="True" NewLinesForBracesInAnonymousMethods="True" NewLinesForBracesInControlBlocks="True" NewLinesForBracesInAnonymousTypes="True" NewLinesForBracesInObjectCollectionArrayInitializers="True" NewLinesForBracesInLambdaExpressionBody="True" NewLineForElse="True" NewLineForCatch="True" NewLineForFinally="True" NewLineForMembersInObjectInit="True" NewLineForMembersInAnonymousTypes="True" NewLineForClausesInQuery="True" SpacingAfterMethodDeclarationName="False" SpaceAfterMethodCallName="False" SpaceBeforeOpenSquareBracket="False" inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
+          <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
         </Policies>
+        <GtkDesignInfo generateGettext="False" />
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>

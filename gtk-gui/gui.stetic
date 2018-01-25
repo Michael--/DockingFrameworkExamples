@@ -9,7 +9,7 @@
     <widget-library name="../../Florence/src/Florence.GtkSharp/bin/x86/Debug/Florence.GtkSharp.dll" />
     <widget-library name="../bin/x86/Debug/DockingExamples.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="DockingExamples.ExampleHelloWorld" design-size="300 300">
+  <widget class="Gtk.Bin" id="DockingExamples.HelloWorld" design-size="300 300">
     <property name="MemberName">HelloWorld</property>
     <property name="Visible">False</property>
     <child>
@@ -20,14 +20,19 @@
           <placeholder />
         </child>
         <child>
-          <widget class="Gtk.Label" id="label2">
+          <widget class="Gtk.Button" id="button1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Hello World</property>
-            <property name="Justify">Fill</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Click me!</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnButton1Clicked" />
           </widget>
           <packing>
             <property name="Position">1</property>
-            <property name="AutoSize">False</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
@@ -82,7 +87,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="DockingExamples.ExampleWorkerThread" design-size="468 300">
+  <widget class="Gtk.Bin" id="DockingExamples.WorkerThreadDemo" design-size="468 300">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>

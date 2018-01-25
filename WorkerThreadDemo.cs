@@ -10,9 +10,9 @@ using System.Collections.Generic;
 namespace DockingExamples
 {
    [System.ComponentModel.ToolboxItem(false)]
-   public partial class ExampleWorkerThread : Docking.Components.Component
+   public partial class WorkerThreadDemo : Docking.Components.Component
    {
-      public ExampleWorkerThread()
+      public WorkerThreadDemo()
       {
          this.Build();
          this.Name = "Threading";
@@ -267,9 +267,9 @@ namespace DockingExamples
 
    #region Starter / Entry Point
 
-   public class ExampleWorkerThreadFactory : ComponentFactory
+   public class WorkerThreadDemoFactory : ComponentFactory
    {
-      public override Type TypeOfInstance { get { return typeof(ExampleWorkerThread); } }
+      public override Type TypeOfInstance { get { return typeof(WorkerThreadDemo); } }
       public override String MenuPath { get { return @"View\Examples\WorkerThread"; } }
       public override String Comment { get { return "Example for using worker threads"; } }
       public override Mode Options { get { return Mode.MultiInstance; } }
