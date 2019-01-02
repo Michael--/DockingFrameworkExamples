@@ -120,6 +120,8 @@ namespace DockingExamples
         public override String MenuPath { get { return @"View\Examples\Python"; } }
         public override String Comment { get { return "Python scriping example"; } }
         public override Gdk.Pixbuf Icon { get { return ResourceLoader_DockingExamples.LoadPixbuf("Example-16.png"); } }
+
+        public override string LicenseGroup { get { return "examples"; } }
     }
     
     #endregion
