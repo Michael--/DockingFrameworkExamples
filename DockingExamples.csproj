@@ -23,7 +23,6 @@
     <Optimize>False</Optimize>
     <Prefer32Bit>false</Prefer32Bit>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -35,7 +34,6 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IronPython">
@@ -142,7 +140,9 @@
     <EmbeddedResource Include="Scripts\test5.py" />
     <EmbeddedResource Include="Scripts\test6.py" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DockingFramework\Docking\Docking.csproj">
       <Project>{8DDC0184-EBA8-4264-993D-E47173F12814}</Project>
