@@ -25,7 +25,7 @@ namespace DockingExamples
             mPush.Clicked += (sender, e) =>
             {
                 String text = String.Format("Hello {0} at {1}", ++mTextCounter, DateTime.Now.ToLongTimeString());
-                uint id = ComponentManager.PushStatusbar(text);
+                uint id = ComponentManager.MenuService.PushStatusbar(text);
                 mStack.Push(id);
                 UpdateMessageText();
             };
@@ -37,7 +37,7 @@ namespace DockingExamples
             mPop.Clicked += (sender, e) =>
             {
                 if (mStack.Count > 0)
-                    ComponentManager.PopStatusbar(mStack.Pop ());
+                    ComponentManager.MenuService.PopStatusbar(mStack.Pop ());
                 UpdateMessageText();
             };
         }
@@ -63,16 +63,16 @@ namespace DockingExamples
         {
             if (visible && !mAdded)
             {
-                ComponentManager.AddToolItem (mPush);
-                ComponentManager.AddToolItem (mPop);
+                ComponentManager.MenuService.AddToolItem (mPush);
+                ComponentManager.MenuService.AddToolItem (mPop);
                 mAdded = true;
             }
             else if (mAdded)
             {
-                ComponentManager.RemoveToolItem (mPush);
-                ComponentManager.RemoveToolItem (mPop);
+                ComponentManager.MenuService.RemoveToolItem (mPush);
+                ComponentManager.MenuService.RemoveToolItem (mPop);
                 while (mStack.Count > 0)
-                    ComponentManager.PopStatusbar(mStack.Pop ());
+                    ComponentManager.MenuService.PopStatusbar(mStack.Pop ());
                 mAdded = false;
             }
             UpdateMessageText();
