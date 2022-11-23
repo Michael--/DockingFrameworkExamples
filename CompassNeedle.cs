@@ -6,6 +6,7 @@ using Docking.Components;
 using Docking.Tools;
 using Gtk;
 using System.Threading;
+using Docking.Framework.Tools;
 
 namespace DockingExamples
 {
@@ -55,7 +56,7 @@ namespace DockingExamples
                m_AngleCurrent = m_HeadingSmoother.getValue();
 
                if (this.DockItem.ContentVisible)
-                  QueueInvoke.Invoke(delegate { drawingarea1.QueueDraw(); });
+                  GtkDispatcher.Instance.InvokeLast(delegate { drawingarea1.QueueDraw(); });
             }
             m_CancelTokenSource.Cancel();
          }, m_CancelTokenSource.Token);
@@ -313,7 +314,7 @@ namespace DockingExamples
           return m_Value;
         }
 
-        // any time gap from last call, iterate smoothing algorithm 
+        // any time gap from last call, iterate smoothing algorithm
         if (tdiff > 0)
         {
           UInt32 iterations = tdiff / m_TimeStep + 1;
@@ -336,7 +337,7 @@ namespace DockingExamples
       // note: m_Time is >= now, expected value between 0..m_Rate
       UInt32 dt = m_Time - now;
 
-      // linear interpolation 
+      // linear interpolation
       double relation = (double)dt / (double)m_TimeStep;
       double dh = getDifference(m_LastValue, m_Value);
       double value = m_Value + relation * dh;
@@ -366,7 +367,7 @@ namespace DockingExamples
     double m_LastValue;     // the last calculated heading (time is now or past)
     protected double m_Value;         // the newest calculted heading (time is now or future
     double m_Quota;           // the heading we disire to reach with the filter algorithm
-    double m_Rate;            // current heading change rate 
+    double m_Rate;            // current heading change rate
     double m_Acceleration;    // acceleration value
     double m_Damping;         // damping value
   }

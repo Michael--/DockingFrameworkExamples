@@ -121,7 +121,7 @@ namespace DockingExamples
       // progress message
       private void mWorkerThread_ProgressChanged(object sender, ProgressChangedEventArgs e)
       {
-         Gtk.Application.Invoke(delegate
+         Docking.Framework.Tools.GtkDispatcher.Instance.Invoke(delegate
          {
             if (!ComponentManager.PowerDown && !m_Destroyed)
                progressbar1.Adjustment.Value = e.ProgressPercentage;
@@ -133,7 +133,7 @@ namespace DockingExamples
          if (ComponentManager.PowerDown)
             return;
 
-         Gtk.Application.Invoke(delegate
+         Docking.Framework.Tools.GtkDispatcher.Instance.Invoke(delegate
          {
             ComponentManager.MessageWriteLine(message);
          });
@@ -215,7 +215,7 @@ namespace DockingExamples
             String description = "Example how to use a Task";
             Message(String.Format("Task {0} started", name));
 
-            Gtk.Application.Invoke(delegate
+            Docking.Framework.Tools.GtkDispatcher.Instance.Invoke(delegate
             {
                labelTaskCount.Text = String.Format("Running count: {0}", ++countTasks);
             });
@@ -236,7 +236,8 @@ namespace DockingExamples
             Message(String.Format("Task {0} {1}", name,
                     cancelTokenSource.IsCancellationRequested ? "cancelled" : "finished"));
             ti.Destroy();
-            Gtk.Application.Invoke(delegate
+
+            Docking.Framework.Tools.GtkDispatcher.Instance.Invoke(delegate
             {
                labelTaskCount.Text = String.Format("Running count: {0}", --countTasks);
             });
